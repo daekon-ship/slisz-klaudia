@@ -188,9 +188,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   background:url("../assets/img/klaudia-hero.jpg") center 22%/cover no-repeat;
   opacity:.5;
   filter:saturate(1.05);
-  will-change:transform;
+  will-change:transform,clip-path;
   transform:translateY(var(--parallax,0)) scale(1.06);
+  /* image reveal: felülről lefelé söprő maszk, csak belépéskor */
+  clip-path:inset(0 0 100% 0);
+  transition:clip-path 1.6s var(--ease-soft) .15s;
 }
+.hero.is-in .hero__bg{clip-path:inset(0 0 0 0)}
 .hero__veil{
   position:absolute;inset:0;
   background:
@@ -335,6 +339,13 @@ section[id]{scroll-margin-top:72px}
   position:relative;overflow:hidden;border-radius:var(--radius);
   aspect-ratio:7/8;
 }
+/* arany glow a portré mögött */
+.about__media::before{
+  content:"";position:absolute;inset:-8% -6% auto -6%;height:70%;
+  background:radial-gradient(60% 55% at 50% 40%, rgba(216,178,106,.22) 0%, transparent 70%);
+  filter:blur(10px);
+  pointer-events:none;
+}
 .about__frame img{
   width:100%;height:100%;object-fit:cover;object-position:center 18%;
   transform:scale(1.12);
@@ -414,6 +425,13 @@ section[id]{scroll-margin-top:72px}
   transition:transform 1.2s var(--ease-soft),filter .8s;
 }
 .g-item:hover img{transform:scale(1.06)}
+/* arany tinta-emelés hoverre */
+.g-item::before{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(160deg, rgba(216,178,106,.14) 0%, transparent 45%);
+  opacity:0;transition:opacity .6s var(--ease);
+}
+.g-item:hover::before{opacity:1}
 .g-item figcaption{
   position:absolute;left:0;right:0;bottom:0;
   padding:2.2rem 1.3rem 1.1rem;
@@ -520,6 +538,15 @@ section[id]{scroll-margin-top:72px}
   animation:orbit 14s linear infinite;
   pointer-events:none;
 }
+/* Élet virága brand-minta: forgó SVG ring a medál körül */
+.symbol__ring{
+  position:absolute;inset:-9%;
+  opacity:.5;
+  animation:spin 60s linear infinite;
+  pointer-events:none;
+}
+.symbol__ring svg{width:100%;height:100%;display:block}
+@keyframes spin{to{transform:rotate(360deg)}}
 .symbol__orbit::before{
   content:"";position:absolute;top:0;left:50%;
   width:7px;height:7px;border-radius:50%;
@@ -545,6 +572,14 @@ section[id]{scroll-margin-top:72px}
     var(--ink-2);
   text-align:center;
 }
+/* Élet virága minta a háttérben, nagyon halkan */
+.cta__pattern{
+  position:absolute;left:50%;top:50%;
+  width:min(720px,120%);aspect-ratio:1;
+  transform:translate(-50%,-50%);
+  opacity:.07;pointer-events:none;user-select:none;
+}
+.cta__pattern svg{width:100%;height:100%;display:block}
 .cta__title{
   font-family:var(--font-display);font-weight:560;
   font-size:var(--fs-h1);line-height:1.04;letter-spacing:-.01em;
@@ -837,6 +872,8 @@ html.motion-off .hero__bg,html.motion-off .wow__bg{transform:none !important}
 html.motion-off .grain{animation:none}
 html.motion-off .word .ch{transform:none !important}
 html.motion-off .cursor-glow{display:none}
+html.motion-off .hero__bg{clip-path:none !important}
+html.motion-off .symbol__ring{animation:none}
 
 /* ---------- Nyomtatás ---------- */
 @media print{

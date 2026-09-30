@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Élet virága favicon: 7 kör a hagyományos mintából -->
+  <rect width="64" height="64" rx="14" fill="#1a1022"/>
+  <g fill="none" stroke="#d8b26a" stroke-width="1.6">
+    <circle cx="32" cy="32" r="12"/>
+    <circle cx="32" cy="24" r="12"/>
+    <circle cx="38.4" cy="28" r="12"/>
+    <circle cx="38.4" cy="36" r="12"/>
+    <circle cx="32" cy="40" r="12"/>
+    <circle cx="25.6" cy="36" r="12"/>
+    <circle cx="25.6" cy="28" r="12"/>
+  </g>
+  <circle cx="32" cy="32" r="3.4" fill="#e9d3a3"/>
+</svg>
