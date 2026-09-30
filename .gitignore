@@ -1,0 +1,20 @@
+# Freebuff munkafájlok
+.freebuff/
+
+# Eredeti, hash-névvel érkezett képforrások (a használt másolatok az assets/img-ben)
+46f8e85a24855b088aacda7fbfe475d6.jpg
+62aa0623669203c843112b3f4da98f86.jpg
+b6167130d001851b318ca17ae2f0bab6.jpg
+Szív élet virágában.jpg
+Élet virága.jpg
+
+# Segéd / QA
+make_qa_embedded.ps1
+_qa_*.html
+
+# FTP hitelesítés — SOHA nem kerül repóba!
+deploy/ftp-credentials.ps1
+
+# Rendszerfájlok
+Thumbs.db
+.DS_Store
