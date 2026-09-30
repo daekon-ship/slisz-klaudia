@@ -90,9 +90,25 @@ A repo pull-nál egy kattintás, ingyenes.
 - ✅ SEO alapok (title, description, OG tag-ek), tematikus favicon
 - ⚠️ A Google Fonts (Fraunces, Manrope) hálózatról töltődik — offline is működik, csak tartalék betűtípussal
 
-## 8. Következő lépések (javaslat)
+## 8. Üzenet Klaudiának (másolható)
+
+> Kedves Klaudia!
+>
+> Elkészítettem a vizuális világod bemutató látványtervét — az öt saját képedet egyetlen, egységes képi univerzummá komponáltam.
+>
+> **Megtekintés (internet kell hozzá):** https://daekon-ship.github.io/slisz-klaudia/
+>
+> **Ha ez nem elérhető:** csatolmányban küldöm a `latvanyterv-egyfajlban.html` fájlt — azt csak meg kell nyitni, internet nélkül is működik.
+>
+> Amit érdemes figyelni rajta: a nyitó képernyő lassan „vonul be” — görgetve az oldal folyamatosan él. A galériában az egyes képekre ha rámutatsz, feliratuk előtűnik. Mobilon a jobb felső három csík nyitja a menüt.
+>
+> Ez első körben bemutatóanyag: a végső elérhetőségek (e-mail, telefon, közösségi oldalak) és az esetleges szolgáltatásleírások a te visszajelzésed után kerülnek rá. Semmit nem találtam ki helyetted — minden, amit látsz, a saját képeidből és világodból jön.
+>
+> Várom a reakciódat: mi tetszik, mit változtatnál, mi az, amit másképp képzelj el.
+
+## 9. Következő lépések (javaslat)
 
 1. Klaudia visszajelzése a látványtervre (szín, szövegek, sorrend)
 2. Valós elérhetőségek + esetleges szolgáltatásleírások begyűjtése
-3. Domain + hosting döntés → élesítés
+3. Domain + hosting döntés → élesítés (FTP-vel: `deploy/FTP-UTMUTATO.md`)
 4. Bővítési opciók: EN nyelvű verzió, Instagram feed, kiállítás-/webshop-modul később
