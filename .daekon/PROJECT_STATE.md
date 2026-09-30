@@ -1,7 +1,12 @@
 # SLISZ KLAUDIA — Projektállapot
 
 ## Current goal
-Prémium bemutató látványterv. **v1.1 — ÁTADVA + ÉLŐ DEMÓ + GIT/FTP KÉSZ**
+Prémium bemutató látványterv. **v2.0 FINÁLÉ — TELJESEN ÁTADHATÓ**
+
+Új a v2.0-ban: hero image-reveal (clip-path wipe), arany glow a portré mögött,
+galéria arany-tinta hover, Élet virága brand-SVG (medál-ring + CTA-minta),
+favicon.svg + apple-touch-icon, 404.html, robots.txt, sitemap.xml,
+deploy/FTP-UTMUTATO.md (magyar, gyorshibaelhárítással).
 
 - Élő demó (GitHub Pages): https://daekon-ship.github.io/slisz-klaudia/
 - Repo: https://github.com/daekon-ship/slisz-klaudia (main, d169b3a)
