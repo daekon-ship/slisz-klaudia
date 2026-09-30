@@ -9,6 +9,14 @@
   <meta property="og:title" content="Slisz Klaudia — Vizuális világ">
   <meta property="og:description" content="Fény, virág és geometria — egy saját, érzékeny képi univerzum. Bemutató látványterv.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="hu_HU">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Slisz Klaudia — Vizuális világ">
+  <meta name="twitter:description" content="Fény, virág és geometria — egy saját, érzékeny képi univerzum.">
+  <meta name="twitter:image" content="assets/img/og-image.jpg">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%23d8b26a' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23d8b26a'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -252,6 +260,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   max-width:34ch;
   color:var(--paper-dim);
   font-size:clamp(1rem,1.4vw,1.2rem);
+  text-wrap:pretty;
   opacity:0;transform:translateY(18px);
   transition:opacity .9s var(--ease) .55s,transform .9s var(--ease) .55s;
 }
@@ -397,6 +406,7 @@ section[id]{scroll-margin-top:72px}
   font-size:.82rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
   overflow:hidden;isolation:isolate;
   transition:transform .35s var(--ease);
+  -webkit-tap-highlight-color:transparent;
 }
 .btn::before{
   content:"";position:absolute;inset:0;z-index:-1;
@@ -436,6 +446,9 @@ section[id]{scroll-margin-top:72px}
   font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--paper-dim);
   opacity:0;transform:translateY(8px);
   transition:opacity .5s var(--ease),transform .5s var(--ease);
+}
+@media(hover:none){
+  .g-item figcaption{opacity:1;transform:none}  /* érintőképernyőn mindig látszik */
 }
 .g-item:hover figcaption{opacity:1;transform:none}
 .g-item::after{
@@ -803,6 +816,9 @@ section[id]{scroll-margin-top:72px}
   text-align:center;white-space:nowrap;
   margin-top:clamp(2.5rem,6vw,4.5rem);
   user-select:none;
+}
+@media(max-width:400px){
+  .footer__giant{font-size:clamp(2.2rem,11vw,2.6rem)}
 }
 .footer__giant span{transition:color .5s var(--ease),-webkit-text-stroke-color .5s}
 .footer__giant:hover span{color:var(--gold-soft);-webkit-text-stroke-color:transparent}

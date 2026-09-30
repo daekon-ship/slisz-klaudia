@@ -235,6 +235,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   max-width:34ch;
   color:var(--paper-dim);
   font-size:clamp(1rem,1.4vw,1.2rem);
+  text-wrap:pretty;
   opacity:0;transform:translateY(18px);
   transition:opacity .9s var(--ease) .55s,transform .9s var(--ease) .55s;
 }
@@ -380,6 +381,7 @@ section[id]{scroll-margin-top:72px}
   font-size:.82rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
   overflow:hidden;isolation:isolate;
   transition:transform .35s var(--ease);
+  -webkit-tap-highlight-color:transparent;
 }
 .btn::before{
   content:"";position:absolute;inset:0;z-index:-1;
@@ -419,6 +421,9 @@ section[id]{scroll-margin-top:72px}
   font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--paper-dim);
   opacity:0;transform:translateY(8px);
   transition:opacity .5s var(--ease),transform .5s var(--ease);
+}
+@media(hover:none){
+  .g-item figcaption{opacity:1;transform:none}  /* érintőképernyőn mindig látszik */
 }
 .g-item:hover figcaption{opacity:1;transform:none}
 .g-item::after{
@@ -786,6 +791,9 @@ section[id]{scroll-margin-top:72px}
   text-align:center;white-space:nowrap;
   margin-top:clamp(2.5rem,6vw,4.5rem);
   user-select:none;
+}
+@media(max-width:400px){
+  .footer__giant{font-size:clamp(2.2rem,11vw,2.6rem)}
 }
 .footer__giant span{transition:color .5s var(--ease),-webkit-text-stroke-color .5s}
 .footer__giant:hover span{color:var(--gold-soft);-webkit-text-stroke-color:transparent}
