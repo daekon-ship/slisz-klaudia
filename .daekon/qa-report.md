@@ -1,5 +1,22 @@
-# DAEKON minőségi kapu — SLISZ KLAUDIA v1.0
-Dátum: 2026-09-30 · Kontextus: ügyfélnek bemutatandó prémium látványterv (statikus one-page)
+# DAEKON minőségi kapu — SLISZ KLAUDIA
+Dátum: 2026-09-30 · v2.0 FINÁLÉ élesben ellenőrizve (commit 4953592)
+Kontextus: ügyfélnek bemutatandó prémium látványterv (statikus one-page)
+
+## VÉGSŐ ÉLES ELLENŐRZÉS (GitHub Pages, 2026-09-30) — mind EXECUTED PASS
+- Oldal: 200 OK · favicon/404/robots/sitemap: mind 200 OK
+- 7/7 kép betölt (3 lazy elem scrollra/erőltetve igazolva — normál viselkedés)
+- 21 navigációs horgony: 0 törött
+- Konzol: 0 hiba
+- 390px: overflow-mentes, hamburger menü aktív · 1920px: overflow-mentes, hero 152px
+- Animációs rendszer aktív (27 karakter-span, motion-keep a Windows-kvirk ellen)
+- Fraunces + Manrope betöltve
+
+## v2.0 bővülés az eredeti v1.0 kapuhoz képest
+hero image-reveal · arany glow portré · galéria arany-tinta hover · Élet virága
+brand-SVG (medál-ring 60s spin + CTA-minta) · favicon.svg · apple-touch-icon ·
+márkázott 404 · robots.txt · sitemap.xml · FTP útmutató (magyar)
+
+Az alábbi eredeti bizonyítéktábla a v1.0 QA-t dokumentálja:
 
 ## Evidence táblázat
 
