@@ -1,7 +1,20 @@
 # SLISZ KLAUDIA — Projektállapot
 
 ## Current goal
-Prémium bemutató látványterv (portfóliószintű referenciamunka) Klaudia 5 saját képére építve. **v1.0 — TELJESEN ÁTADVA** (látványterv + átadó dokumentum + QA-jelentés).
+Prémium bemutató látványterv. **v1.1 — ÁTADVA + ÉLŐ DEMÓ + GIT/FTP KÉSZ**
+
+- Élő demó (GitHub Pages): https://daekon-ship.github.io/slisz-klaudia/
+- Repo: https://github.com/daekon-ship/slisz-klaudia (main, d169b3a)
+- FTP: `deploy/ftp-deploy.ps1` + `deploy/ftp-config.example.ps1` (hitelesítő: git-ignorált ftp-credentials.ps1)
+
+## v1.1 brutál vizuális réteg (lefuttatva, QA-zva)
+- karakter-szintű hero reveal (27 ch span, staggelt delay)
+- por-részecske canvas (dpr-aware, IntersectionObserver-tudatos, 26/55 részecske)
+- film-grain SVG turbulence + cursor-glow (fine pointer only)
+- outline tipó: hero 3. sor, marquee b-k, WOW ghost "arany" (90°, scroll-move), footer óriás név (hover-fill)
+- WOW scroll-zoom (1.04↔1.24) + ghostmove ±140px
+- gi--a íves (999px border-radius), sec-index 01–04
+- mozgás-kapcsoló (sk-motion localStorage) — a Windows MinAnimate=0 reduced-motion kvirk kezelésére; html.motion-keep felülbírálja az OS preferenciát, motion-off a felhasználói kikapcsolás
 
 ## Átadási csomag
 - `latvanyterv-egyfajlban.html` — ügyfélnek küldhető, minden beágyazva (smoke-tesztelve)

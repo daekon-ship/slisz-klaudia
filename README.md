@@ -1,7 +1,22 @@
 # SLISZ KLAUDIA — Vizuális világ
-## Bemutató látványterv · Átadási dokumentum · v1.0 (2026-09-30)
+## Bemutató látványterv · Átadási dokumentum · v1.1 (2026-09-30)
+
+**Élő demó:** https://daekon-ship.github.io/slisz-klaudia/
+**GitHub:** https://github.com/daekon-ship/slisz-klaudia
 
 ---
+
+## 0. v1.1 — brutál vizuális réteg (új)
+
+- **Karakter-szintű hero reveal** — a név betűnként, staggelt időzítéssel áll össze
+- **Por-részecske canvas** a heróban — lebegő aranyporszemek, halvány csillogással (mobilon kevesebb részecske, mobilon is sima)
+- **Film-grain réteg** — nagyon finom, prémium „szemcse” az egész oldalon
+- **Cursor fény** — az egér mögött haladó, elhaló arany ragyogás (csak asztali gépen)
+- **Outline tipográfia** — a hero 3. sora körvonalas; a WOW sávban óriás, függőleges „arany” ghost-szó csúszik görgetésre; a footerben óriás körvonalas név, ami hoverre töltődik arannyal
+- **WOW scroll-zoom** — az arany virág háttér görgetésre lassan zoomol
+- **Íves galériakép** — az első kép boltíves aljával (fotó-arch keretérzet)
+- **Szekció-számok** (01–04) óriás outline kiemeléssel
+- **Mozgás-kapcsoló** a láblécben — ha a Windows-on kikapcsolt ablakanimáció (MinAnimate=0) miatt a böngésző letiltaná az animációkat, az oldal így is él; a kapcsolóval kikapcsolható marad az akadálymentesség kedvéért
 
 ## 1. Mit kaptál
 
@@ -46,14 +61,25 @@ A Kapcsolat szekció ezért jelenleg „hamarosan" gombokat mutat. Amint megvann
 - **Színek:** `css/style.css` elején a `:root` blokk — egy sor átírása az egész oldalt átszínezi
 - **Tipográfia:** `--font-display` (címek) és `--font-body` (szöveg) a `:root`-ban
 - **Képcsere:** `assets/img/` fájlok azonos néven felülírhatók — a kompozíció változatlan marad
-- **Újraépítés:** ha a szabadalmi egyfájlos verziót is frissíteni kell: `powershell -File make_qa_embedded.ps1`, majd `copy _qa_embedded.html latvanyterv-egyfajlban.html`
+- **Újraépítés:** ha az egyfájlos verziót is frissíteni kell: `powershell -File make_qa_embedded.ps1`, majd `copy _qa_embedded.html latvanyterv-egyfajlban.html`
 
-## 6. Közzététel (ha jóváhagyod)
+## 6. Közzététel
 
-A látványterv bármelyik ingyenes/olcsó statikus hostingon fut:
-- **Netlify / Vercel / Cloudflare Pages:** húzd be a mappát, kész (ingyenes)
-- **Saját domain:** a fenti szolgáltatásokon 1-2 kattintás alatt beállítható
-- Nem kell szerver, adatbázis, PHP — teljesen statikus, gyors és olcsó fenntartani
+### a) GitHub Pages — MÁR ÉL
+Az oldal automatikusan felkerült ide: **https://daekon-ship.github.io/slisz-klaudia/**
+Minden `git push` után ~1 percen belül frissül. Később saját domain is ráállítható.
+
+### b) Saját tárhely FTP-n
+1. `deploy/ftp-config.example.ps1` → másold `deploy/ftp-credentials.ps1` névre, töltsd ki a tárhely adataival (a fájl a .gitignore-ban van, soha nem kerül fel GitHubra)
+2. Feltöltés:
+```powershell
+powershell -File deploy\ftp-deploy.ps1              # egyfájlos (gyors bemutató)
+powershell -File deploy\ftp-deploy.ps1 -Structure multi   # teljes szerkezet css/js/img
+```
+3. Kész — böngészőben a domain azonnal az új oldalt mutatja
+
+### c) Netlify/Vercel/Cloudflare Pages
+A repo pull-nál egy kattintás, ingyenes.
 
 ## 7. Technikai állapot
 
