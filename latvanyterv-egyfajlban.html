@@ -75,12 +75,15 @@ body{
   line-height:1.7;
   color:var(--ink);
   background:var(--paper);
+  -webkit-tap-highlight-color:transparent;
+  overflow-x:hidden;
   overflow-x:clip;
 }
 
 img,svg,canvas{ display:block; max-width:100%; }
 a{ color:inherit; text-decoration:none; }
 ul,ol{ list-style:none; }
+a,button{ touch-action:manipulation; }
 button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; }
 
 ::selection{ background:var(--gold); color:var(--ink); }
@@ -130,6 +133,7 @@ button{ font:inherit; color:inherit; background:none; border:0; cursor:pointer; 
   transition:background .45s ease, box-shadow .45s ease, backdrop-filter .45s ease;
 }
 .nav.is-scrolled{
+  background:rgba(23,16,31,.82);
   background:color-mix(in srgb, var(--ink) 82%, transparent);
   backdrop-filter:blur(14px);
   -webkit-backdrop-filter:blur(14px);
@@ -418,6 +422,7 @@ body.menu-open .nav__panel-link:nth-child(5){ transition-delay:.39s }
 }
 .works__stage{
   position:sticky; top:calc(var(--nav-h) + 1.6rem);
+  scroll-margin-top:calc(var(--nav-h) + 1rem);
   aspect-ratio:4/4.6;
   border:1px solid var(--line-dark); border-radius:3px;
   background:
@@ -457,6 +462,7 @@ body.menu-open .nav__panel-link:nth-child(5){ transition-delay:.39s }
   color:var(--t-paper-2); text-align:right;
 }
 .works__item:hover{ background:rgba(201,163,92,.045); }
+.works__item:active{ background:rgba(201,163,92,.14); }
 .works__item.is-active{ padding-left:1.1rem; background:rgba(201,163,92,.06); box-shadow:inset 2px 0 0 var(--gold); }
 .works__item.is-active .works__name{ color:var(--gold-2); }
 .works__item.is-active .works__no{ color:var(--gold); }
@@ -567,6 +573,7 @@ body.menu-open .nav__panel-link:nth-child(5){ transition-delay:.39s }
 }
 .btn .arr{ transition:transform .35s var(--ease); }
 .btn:hover{ background:var(--gold); border-color:var(--gold); color:var(--ink); transform:translateY(-2px); }
+.btn:active{ transform:scale(.97); }
 .btn:hover .arr{ transform:translateX(4px); }
 .btn--ghost{ color:var(--t-paper); border-color:var(--line-dark); }
 .btn--ghost:hover{ background:transparent; border-color:var(--gold-dim); color:var(--gold-2); }
@@ -651,26 +658,41 @@ body.menu-open .nav__panel-link:nth-child(5){ transition-delay:.39s }
   .nav__burger{ display:block; margin-left:auto; }
   .nav__inner{ gap:1rem; }
 
+  /* ---- HERO: saját telefonos kompozíció ---- */
   .hero{ align-items:flex-end; }
   .hero__side{ display:none; }
   .hero__inner{ padding-left:1.1rem; }
-  .hero__title{ font-size:clamp(2.9rem, 13.5vw, 5rem); }
-  .hero__title .line--2{ margin-left:1.6rem; }
-  .hero__title .line--3{ margin-left:.4rem; }
-  .hero__meta{ flex-direction:column; align-items:flex-start; gap:1.6rem; }
+  .hero__veil{
+    background:
+      radial-gradient(150% 62% at 50% 0%, rgba(201,163,92,.09), transparent 58%),
+      linear-gradient(180deg, rgba(23,16,31,.52) 0%, rgba(23,16,31,.24) 34%, rgba(23,16,31,.93) 86%, var(--ink-3) 100%);
+  }
+  .hero__eyebrow{ margin-bottom:1.1rem; }
+  .hero__title{ font-size:clamp(3.1rem, 16vw, 5.6rem); }
+  .hero__title .line--2{ margin-left:1.5rem; }
+  .hero__title .line--3{ margin-left:.3rem; font-size:.56em; white-space:nowrap; }
+  .hero__sub{ margin-top:1.2rem; font-size:.97rem; max-width:32rem; }
+  .hero__meta{ flex-direction:column; align-items:flex-start; gap:1.4rem; margin-top:1.9rem; }
+  .hero__scroll{ padding:.5rem 0; }
+  .wheel{ width:24px; height:40px; }
 
-  .marquee__item{ font-size:1.15rem; }
+  /* ---- szekció-ritmus ---- */
+  .section{ padding:clamp(4.2rem, 13vw, 7rem) 0; }
+  .h2{ font-size:clamp(1.95rem, 8.4vw, 2.7rem); }
+  .manifesto__text{ font-size:clamp(1.62rem, 7.4vw, 2.5rem); }
+  .marquee__item{ font-size:1.12rem; }
 
   .motifs{ grid-template-columns:1fr 1fr; gap:1.1rem; }
   .motif p{ font-size:.84rem; }
 
   .works__stage{ aspect-ratio:1/1; }
-  .works__item{ grid-template-columns:auto 1fr; }
+  .works__caption{ font-size:.64rem; letter-spacing:.13em; }
+  .works__item{ grid-template-columns:auto 1fr; padding:1.2rem .2rem; }
   .works__tag{ display:none; }
-  .works__item.is-active::after{ display:none; }
 
   .values{ grid-template-columns:1fr; }
   .cta__pattern{ right:-40%; width:100vw; opacity:.35; }
+  .cta__actions .btn{ width:100%; justify-content:center; }
   .footer__grid{ grid-template-columns:1fr; gap:1.8rem; }
   .footer__giant{ white-space:normal; line-height:1.05; }
   .footer__bottom{ flex-direction:column; align-items:flex-start; gap:.7rem; }
@@ -679,7 +701,7 @@ body.menu-open .nav__panel-link:nth-child(5){ transition-delay:.39s }
 
 @media (max-width:430px){
   .motifs{ grid-template-columns:1fr; }
-  .motif__art{ aspect-ratio:1/.9; }
+  .motif__art{ aspect-ratio:1/.78; }
 }
 
 /* ---------- 18. MOZGÁS-KEZELÉS ---------- */
@@ -1266,7 +1288,7 @@ html.motion-off .grain{ animation:none; }
       return P;
     },
     sprout(w, h) {
-      const cx = w / 2, R = Math.min(w, h) * .30, cy = h * .7;
+      const cx = w / 2, R = h * .255, cy = h * .72; // magasság-horgonyzott: bármilyen képarányban belefér
       const P = [];
       // szár: enyhe S-görbe
       P.push({ pts: cubic({ x: cx, y: cy }, { x: cx - R * .35, y: cy - R * 1.05 }, { x: cx + R * .55, y: cy - R * 1.6 }, { x: cx + R * .16, y: cy - R * 2.2 }, 90), w: 1.3, a: .9, glow: 8 });
@@ -1358,6 +1380,12 @@ html.motion-off .grain{ animation:none; }
     if (!item || item.classList.contains('is-active')) return;
     worksItems.forEach(i => i.classList.remove('is-active'));
     item.classList.add('is-active');
+    // mobilon a lista a vászon alatt van: koppintásra görgetünk fel a rajzhoz
+    const stage = worksCv && worksCv.parentElement;
+    if (stage && matchMedia('(max-width:760px)').matches) {
+      const r = stage.getBoundingClientRect();
+      if (r.top < -10) stage.scrollIntoView({ behavior: motionOn() ? 'smooth' : 'auto', block: 'start' });
+    }
     if (worksCap) {
       worksCap.textContent = '';
       worksCap.append(item.dataset.title, ' ');
@@ -1441,10 +1469,14 @@ html.motion-off .grain{ animation:none; }
     drawDots(ctx, wowScene.dots, now);
   }
 
+  let wowLast = 0;
   function wowLoop(now) {
     wowRAF = 0;
     if (!wowVisible || !motionOn()) return;
-    paintWow(now, now * .000012);
+    if (!lowPower || now - wowLast > 66) {
+      paintWow(now, now * .000012);
+      wowLast = now;
+    }
     wowRAF = requestAnimationFrame(wowLoop);
   }
 
@@ -1461,11 +1493,15 @@ html.motion-off .grain{ animation:none; }
   /* ============================================================
      HERO loop + belépés
      ============================================================ */
-  let heroVisible = true, heroRAF = 0;
+  let heroVisible = true, heroRAF = 0, heroLast = 0;
+  const lowPower = matchMedia('(pointer: coarse)').matches; // telefon/tablet: takarékos frissítés
   function heroLoop(now) {
     heroRAF = 0;
     if (!heroVisible || !motionOn()) return;
-    paintHero(1, now, Math.sin(now * .00008) * .05);
+    if (!lowPower || now - heroLast > 50) {
+      paintHero(1, now, Math.sin(now * .00008) * .05);
+      heroLast = now;
+    }
     heroRAF = requestAnimationFrame(heroLoop);
   }
 

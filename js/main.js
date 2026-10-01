@@ -231,7 +231,7 @@
       return P;
     },
     sprout(w, h) {
-      const cx = w / 2, R = Math.min(w, h) * .30, cy = h * .7;
+      const cx = w / 2, R = h * .255, cy = h * .72; // magasság-horgonyzott: bármilyen képarányban belefér
       const P = [];
       // szár: enyhe S-görbe
       P.push({ pts: cubic({ x: cx, y: cy }, { x: cx - R * .35, y: cy - R * 1.05 }, { x: cx + R * .55, y: cy - R * 1.6 }, { x: cx + R * .16, y: cy - R * 2.2 }, 90), w: 1.3, a: .9, glow: 8 });
@@ -323,6 +323,12 @@
     if (!item || item.classList.contains('is-active')) return;
     worksItems.forEach(i => i.classList.remove('is-active'));
     item.classList.add('is-active');
+    // mobilon a lista a vászon alatt van: koppintásra görgetünk fel a rajzhoz
+    const stage = worksCv && worksCv.parentElement;
+    if (stage && matchMedia('(max-width:760px)').matches) {
+      const r = stage.getBoundingClientRect();
+      if (r.top < -10) stage.scrollIntoView({ behavior: motionOn() ? 'smooth' : 'auto', block: 'start' });
+    }
     if (worksCap) {
       worksCap.textContent = '';
       worksCap.append(item.dataset.title, ' ');
@@ -406,10 +412,14 @@
     drawDots(ctx, wowScene.dots, now);
   }
 
+  let wowLast = 0;
   function wowLoop(now) {
     wowRAF = 0;
     if (!wowVisible || !motionOn()) return;
-    paintWow(now, now * .000012);
+    if (!lowPower || now - wowLast > 66) {
+      paintWow(now, now * .000012);
+      wowLast = now;
+    }
     wowRAF = requestAnimationFrame(wowLoop);
   }
 
@@ -426,11 +436,15 @@
   /* ============================================================
      HERO loop + belépés
      ============================================================ */
-  let heroVisible = true, heroRAF = 0;
+  let heroVisible = true, heroRAF = 0, heroLast = 0;
+  const lowPower = matchMedia('(pointer: coarse)').matches; // telefon/tablet: takarékos frissítés
   function heroLoop(now) {
     heroRAF = 0;
     if (!heroVisible || !motionOn()) return;
-    paintHero(1, now, Math.sin(now * .00008) * .05);
+    if (!lowPower || now - heroLast > 50) {
+      paintHero(1, now, Math.sin(now * .00008) * .05);
+      heroLast = now;
+    }
     heroRAF = requestAnimationFrame(heroLoop);
   }
 
