@@ -1,6 +1,18 @@
 # DAEKON minőségi kapu — SLISZ KLAUDIA
-Dátum: 2026-09-30 · v2.0 FINÁLÉ élesben ellenőrizve (commit 4953592)
+Dátum: 2026-10-01 · **v3.0 fotó-mentes generatív újraépítés** (üzleti kérésre)
 Kontextus: ügyfélnek bemutatandó prémium látványterv (statikus one-page)
+
+## v3.0 kapu (2026-10-01) — preview QA, mind EXECUTED PASS
+- Konzol: 0 hiba / 0 figyelmeztetés friss reload után (többször)
+- Hero: `hero.is-in` + 27 karakter-span opacity 1 (reveal él); hero-canvas festve
+- Ősformák: 4/4 motívum-canvas festve (IO-indítás) — sprout 2x iterálva vizuálisan
+- Alkotások: boot-nál festett; kattintásra vált (activeItem + caption + 4680 festett px mérve)
+- WOW: bloom-canvas festve, forgó loop IO-kapcsolt
+- Mobil 390px: overflowX = 0; hamburger nyit→zár (aria-state-ekkel) mérése rendben
+- Asztali 1440: hero / Ősformák / Alkotások / WOW / Szimbólum / CTA / footer képernyőképen átnézve;
+  3 hiba megtalálva és javítva (works nyíl-tördelés, CTA tintaszín, hero oldalfelirat-ütközés)
+- Konzisztencia: fotók 0 hivatkozás; OG abszolút URL PNG-re mutat; egyfájlos átadó újraépítve (69 KB, inline, offline)
+- Korlátozás: élő GitHub Pages ellenőrzés a push UTÁN esedékes (a 2026-09-30-i élő tábla a v2-t dokumentálta)
 
 ## VÉGSŐ ÉLES ELLENŐRZÉS (GitHub Pages, 2026-09-30) — mind EXECUTED PASS
 - Oldal: 200 OK · favicon/404/robots/sitemap: mind 200 OK

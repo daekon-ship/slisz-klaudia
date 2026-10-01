@@ -1,22 +1,22 @@
 # SLISZ KLAUDIA — Vizuális világ
-## Bemutató látványterv · Átadási dokumentum · v1.1 (2026-09-30)
+## Bemutató látványterv · Átadási dokumentum · v3.0 (2026-10-01)
 
 **Élő demó:** https://daekon-ship.github.io/slisz-klaudia/
 **GitHub:** https://github.com/daekon-ship/slisz-klaudia
 
 ---
 
-## 0. v1.1 — brutál vizuális réteg (új)
+## 0. v3.0 — fotó-mentes, generatív vonalrajz (újragépelve)
 
-- **Karakter-szintű hero reveal** — a név betűnként, staggelt időzítéssel áll össze
-- **Por-részecske canvas** a heróban — lebegő aranyporszemek, halvány csillogással (mobilon kevesebb részecske, mobilon is sima)
-- **Film-grain réteg** — nagyon finom, prémium „szemcse” az egész oldalon
-- **Cursor fény** — az egér mögött haladó, elhaló arany ragyogás (csak asztali gépen)
-- **Outline tipográfia** — a hero 3. sora körvonalas; a WOW sávban óriás, függőleges „arany” ghost-szó csúszik görgetésre; a footerben óriás körvonalas név, ami hoverre töltődik arannyal
-- **WOW scroll-zoom** — az arany virág háttér görgetésre lassan zoomol
-- **Íves galériakép** — az első kép boltíves aljával (fotó-arch keretérzet)
-- **Szekció-számok** (01–04) óriás outline kiemeléssel
-- **Mozgás-kapcsoló** a láblécben — ha a Windows-on kikapcsolt ablakanimáció (MinAnimate=0) miatt a böngésző letiltaná az animációkat, az oldal így is él; a kapcsolóval kikapcsolható marad az akadálymentesség kedvéért
+Az ügyfél kérésére az oldal **nem használja Klaudia fotóit**. Helyette minden motívumot **élő, generatív vonalrajz** jelenít meg (canvas):
+
+- **Hero** — az Élet virága + szív + spirál + fényhaló nagy generatív kompozíciója, betöltéskor vonalanként megrajzolva, lassan lebegő aranyporszemekkel
+- **Ősformák** — négy élő vonalrajz-kártya: Fény (koncentrikus gyűrűk), Hajtás (botanikai szár-levél), Szív, Aritmia (aranyspirál)
+- **Alkotások** — interaktív műlista: kattintásra/érintésre a nagy vászon a kiválasztott mű vonalrajzával „él fel” (progresszív rajzolás)
+- **WOW sáv** — minden betöltéskor újra „születő” arany-bloom: ~80 véletlen ív a tökéletes gyűrűk körül (sosem ugyanaz)
+- **Editorial tipográfia** — Fraunces + Cormorant Garamond + Manrope; óriás hero, outline sorok, függőleges ghost-szó
+- **Film-grain, cursor-fény, marquee, footer óriás név** — megtartva a v2-ből
+- **Mozgás-kapcsoló** a láblécben (Windows MinAnimate-kvirk elleni védelem megmaradt)
 
 ## 1. Mit kaptál
 
@@ -24,7 +24,7 @@
 |---|---|
 | **`latvanyterv-egyfajlban.html`** | ⭐ **AZ ÁTADHATÓ VERZIÓ.** Egyetlen fájl, minden kép beágyazva. Küldd el bárhogy (e-mail, Messenger, pendrive) — dupla kattintásra megnyílik böngészőben, internet sem kell hozzá. |
 | `index.html` + `css/` + `js/` + `assets/img/` | A „műhelybeli", szerkeszthető változat — ebben dolgozunk tovább. |
-| `assets/img/` | Klaudia 5 saját képe letisztult néven (a gyökérben az eredetiek is megmaradtak érintetlenül). |
+| `assets/img/` | Fotó-mentes grafika: `favicon.svg` (Élet virága), `og-image.png` (generatív megosztókép). A fotók **nincsenek használatban** — az eredeti fájlok a gyökérben érintetlenek, de fel sem töltődnek releváns helyre. |
 | `.daekon/` | Belső munkadokumentáció: döntések, QA-napló, projektállapot. (Nem kell átadni.) |
 
 ## 2. Hogyan nézd meg (3 lépés)
@@ -35,14 +35,14 @@
 
 ## 3. Az oldal felépítése
 
-| Szekció | Kép | Szerep |
+| Szekció | Vizuál | Szerep |
 |---|---|---|
-| HERO | fénylő alak, virágkoszorú | Nagy nyitó kompozíció, lassú parallax |
+| HERO | generatív Élet virága + szív + spirál canvas | Nagy nyitó kompozíció, élő porszemek |
 | Manifestó | — | Csendes átvezetés, soronkénti belépéssel |
-| Rólam | alak izzó szívvel | Editorial portré + kulcsértékek |
-| Galéria | mind az 5 mű | Aszimmetrikus album-kompozíció |
-| WOW sáv | arany virág | Full-screen parallax pillanat |
-| Szimbólum | szív az Élet virágában | Kerek medál, 3 jelentésréteg |
+| Ősformák | 4 élő vonalrajz-kártya | A motívumok nyelvtana |
+| Alkotások | interaktív váltó-vászon | Az 5 mű vonalrajz-értelmezése |
+| WOW sáv | generatív arany-bloom (mindig új) | Full-screen pillanat |
+| Szimbólum | forgó Élet virága SVG | 3 jelentésréteg |
 | Szemlélet | — | 3 irányadó elv |
 | Kapcsolat / CTA | — | **Hamarosan állapot** — lásd lent |
 
@@ -52,6 +52,7 @@ Az átadási elv: **semmi kitalált adat.** Amíg nincs forrás, az oldalon nem 
 - e-mail, telefonszám, cím, nyitvatartás
 - szolgáltatáslista, árak
 - vélemények, mérföldkövek, statisztikák
+- **és — a kérés szerint — Klaudia fotói sem.** A vizuális világot a motívumai generatív vonalrajzként hordozzák; ha később mégis képeket szeretne, a v2-es fotós verzió a git előzményből 1 paranccsal visszahozható.
 
 A Kapcsolat szekció ezért jelenleg „hamarosan" gombokat mutat. Amint megvannak a valódi elérhetőségek, 5 perc alatt bekerülnek.
 
@@ -86,7 +87,7 @@ A repo pull-nál egy kattintás, ingyenes.
 - ✅ Konzolhibamentes, 7/7 kép betölt
 - ✅ Reszponzív: 360 px-től 1920 px-ig overflow-mentesen tesztelve
 - ✅ Kontrasztok WCAG AAA/AA szintűek
-- ✅ `prefers-reduced-motion` támogatás (csökkentett mozgás esetén minden animáció kikapcsol)
+- ✅ `prefers-reduced-motion` támogatás (a footer kapcsolóval felülbírálható)
 - ✅ SEO alapok (title, description, OG tag-ek), tematikus favicon
 - ⚠️ A Google Fonts (Fraunces, Manrope) hálózatról töltődik — offline is működik, csak tartalék betűtípussal
 
