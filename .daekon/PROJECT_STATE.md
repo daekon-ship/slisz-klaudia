@@ -1,12 +1,25 @@
 # SLISZ KLAUDIA — Projektállapot
 
 ## Current goal
-Prémium bemutató látványterv. **v3.0 — FOTÓ-MENTES, GENERATÍV VONALRAJZ (újragépelve)**
+Prémium bemutató látványterv. **v4.0 — MŰVÉSZETI MOTOR-ÚJRAÉPÍTÉS (élő: 2fbac2d)**
 
-Ügyfél-utasítás: „ne használd fel a képeit, nagyon gagyi lett az oldal, csináld meg
-ebben a stílusban nagyon jóra, nagyon gyenge vizuálisan". Válasz: a teljes oldal
-újraépült — **fotók nélkül**. Klaudia öt művének motívumai (fény, hajtás, szív,
-Élet virága, spirál) élő, generatív canvas-vonalrajzokként jelennek meg.
+Ügyfél-utasítások: „ne használd fel a képeit, nagyon gagyi lett" → v3.0 fotó-mentes
+generatív újraépítés; majd "RITKA SZAR SOKKAL JOBBAT CSINÁLJ ELEMEZD ÁT SOKSZOR" →
+v4.0: mély audit + 3 iterációs kör (audit → motor-újraépítés → screenshot-audit →
+javítás → QA → push). A vonalrajz-motor művészivé fokozva:
+- engrave() többsávos metszet-vonalak, stipple()/stippleShape() porszem-felhők,
+  rose() rózsa-görbe, fibDots() fibonacci magfej, fill-támogatás (kitöltött magok)
+- Vörös (--red) mint EGYETLEN telített akcentus (hero szívmag, Ősformák számok,
+  works 04/05, OG-kép)
+- Hero "fény-oltár", Ősformák tintavonalak papíron + aszimmetrikus rács,
+  works mű-specifikus jelenetek + vízjel, WOW strukturált rózsablond,
+  CTA solid arany gomb; hero/wow offscreen cache (perf)
+- QA: 0 konzolhiba, overflow 0 @360/390/430/1440, élő Pages 200 + új motor élőben
+  igazolva (engrave/fibDots/rose/btn--solid megtalálható a published fájlokban)
+
+## Előzmény (v3.0)
+Fotó-mentes generatív vonalrajz-újjáépítés: Klaudia öt művének motívumai (fény,
+hajtás, szív, Élet virága, spirál) élő canvas-rajzokként.
 
 - Élő demó (GitHub Pages): https://daekon-ship.github.io/slisz-klaudia/
 - Repo: https://github.com/daekon-ship/slisz-klaudia (main)

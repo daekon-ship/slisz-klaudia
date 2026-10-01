@@ -1,6 +1,19 @@
 # DAEKON minőségi kapu — SLISZ KLAUDIA
-Dátum: 2026-10-01 · **v3.0 fotó-mentes generatív újraépítés** (üzleti kérésre)
+Dátum: 2026-10-01 · **v4.0 művészeti motor-újraépítés** ("SOKKAL JOBBAT" kérésre)
 Kontextus: ügyfélnek bemutatandó prémium látványterv (statikus one-page)
+
+## v4.0 kapu (2026-10-01) — EXECUTED PASS
+- Konzol: 0 hiba / 0 figyelmeztetés (desktop + mobil reload után, preview_logs)
+- Overflow-x: 0 px @ 360 / 390 / 430 / 1400 / 1440 (scrollWidth − innerWidth)
+- Hero: fény-oltár kompozíció él (vörös szívmag + Élet virága + por), reveal OK
+- Works: 5/5 mű-specifikus jelenet vált; vízjel + felirat frissül; 05 szív-clip javítva
+- WOW: strukturált rózsablond + forgás; Szimbólum, Szemlélet, CTA, footer átnézve
+- Mobil 390: hero mag-helyzet javítva (cy .36→.33, R .34→.31); CTA full-width OK
+- Élő Pages: index 200; main.js-ben engrave/fibDots/rose = 23 találat; style.css-ben
+  btn--solid = 2 találat → az új build ÉL a publikus URL-en
+- OG-kép: újragenerálva (vörös mag, vörös szív, porszem-felhő), PNG a repóban
+
+## v3.0 kapu (2026-10-01) — preview QA, mind EXECUTED PASS
 
 ## v3.0 kapu (2026-10-01) — preview QA, mind EXECUTED PASS
 - Konzol: 0 hiba / 0 figyelmeztetés friss reload után (többször)
