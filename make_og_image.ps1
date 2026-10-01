@@ -19,7 +19,7 @@ function Col($hex, $a = 255) {
 }
 
 $INK   = Col '17101f'; $INK2 = Col '241831'; $GOLD = Col 'c9a35c'
-$GOLD2 = Col 'e9d3a1'; $PAPER = Col 'f3efe9'
+$GOLD2 = Col 'e9d3a1'; $PAPER = Col 'f3efe9'; $RED = Col 'b8524a'
 
 # háttér: radial sötét tinta
 $rect = New-Object System.Drawing.Rectangle(0,0,$w,$h)
@@ -54,21 +54,38 @@ DrawCircle ($FCX-79.7) ($FCY+46) $FR 2 235
 DrawCircle ($FCX-79.7) ($FCY-46) $FR 2 235
 DrawCircle $FCX $FCY 172 1.2 110 $true
 DrawCircle $FCX $FCY 212 1 75 $true
-# mag izzás
-RadialSpot $FCX $FCY 34 200
-$g.FillEllipse((New-Object System.Drawing.SolidBrush($GOLD2)), ($FCX-7), ($FCY-7), 14, 14)
+# mag izzás (vörös szívmag — az oldal egyetlen telített pontja)
+RadialSpot $FCX $FCY 46 210
+$g.FillEllipse((New-Object System.Drawing.SolidBrush($RED)), ($FCX-13), ($FCY-13), 26, 26)
+$g.FillEllipse((New-Object System.Drawing.SolidBrush($GOLD2)), ($FCX-4), ($FCY-4), 8, 8)
 
-# szív-motívum jobb alul
-$heartPen = New-Object System.Drawing.Pen(([System.Drawing.Color]::FromArgb(190, $GOLD)), 3)
-$g.TranslateTransform(1055, 520); $g.ScaleTransform(2.6, 2.6)
+# porszem-felhő a virág körül
+$rnd = New-Object System.Random(7)
+1..90 | ForEach-Object {
+  $ang = $rnd.NextDouble() * [Math]::PI * 2
+  $rr = 100 + ($rnd.NextDouble() * 150)
+  $x = $FCX + [Math]::Cos($ang) * $rr
+  $y = $FCY + [Math]::Sin($ang) * $rr * 0.86
+  $sz = 1 + $rnd.NextDouble() * 2.2
+  $al = [int](40 + $rnd.NextDouble() * 130)
+  $dotBrush = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb($al, $GOLD2))
+  $g.FillEllipse($dotBrush, ($x-$sz/2), ($y-$sz/2), $sz, $sz)
+  $dotBrush.Dispose()
+}
+
+# szív-motívum jobb alul — vörösen, az új arányhoz igazítva
+$heartPen = New-Object System.Drawing.Pen(([System.Drawing.Color]::FromArgb(200, $RED)), 3)
+$heartFill = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(120, $RED))
+$g.TranslateTransform(1050, 512); $g.ScaleTransform(2.3, 2.3)
 $hp = New-Object System.Drawing.Drawing2D.GraphicsPath
 $hp.AddBezier(-16,-3, -16,-13, -5,-13, 0,-6.5)
 $hp.AddBezier(0,-6.5, 5,-13, 16,-13, 16,-3)
 $hp.AddBezier(16,-3, 16,5, 6,10, 0,15)
 $hp.AddBezier(0,15, -6,10, -16,5, -16,-3)
+$g.FillPath($heartFill, $hp)
 $g.DrawPath($heartPen, $hp)
 $g.ResetTransform()
-$heartPen.Dispose()
+$heartPen.Dispose(); $heartFill.Dispose()
 
 # tipográfia
 $fName = New-Object System.Drawing.FontFamily('Georgia')
