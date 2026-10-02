@@ -1,6 +1,22 @@
 # DAEKON minőségi kapu — SLISZ KLAUDIA
-Dátum: 2026-10-02 · **v5.0 — eredeti képek visszatérnek** (konkrét feladatlista alapján)
+Dátum: 2026-10-02 · **v5.1 — tipó-rend + tárlat-katalógus** ("BETŰTÍPUS SZAR / SOK A NÉV / RANDOM KÉPEK" kérésre)
 Kontextus: ügyfélnek bemutatandó prémium látványterv (statikus one-page)
+
+## v5.1 kapu (2026-10-02) — EXECUTED PASS
+- Név-ismétlés kivezetve: footer óriás outline → csendes mottó (Élet virága SVG + Fény·Virág·Geometria·Szív);
+  wow ghost-szó eltávolítva; manifestó aláírás + mobilmenü lábléc név nélkül.
+  A „Slisz/Klaudia" már csak: hero óriás, nav-brand, footer brand + jogsor (a where it belongs).
+- Betű-role-k rendbetéve: marquee dőlt Cormorantból → Manrope caps-label;
+  about-értékek + szimbólum sorszámok hasonlóan; hero 3. sor marad aegyedüli nagy Cormorant-italic.
+- Galéria teljes újraírás: .plates tárlat-katalógus — 5 számozott tárlat (01–05),
+  váltott bal/jobbigazított sor, mindig látható felirat (TÁRLAT 01 / cím / altag + arany rule),
+  képjelleg-szerinti keretarányok (4/3, 4/4.6, 4/4.4, 1/1, 4/3.2), mobil: kép + felirat alatta.
+- Overflow: 0 @360/390/430/768/1440 · konzol: 0 · 8/8 img betölt (görgetéssel is) · név-előfordulás 9 →
+  a fenti 4 helyen (tartalmi szövegekkel együtt).
+- Elavult CSS-maradványok kitakarítva (.gi--*, .gallery__grid, .footer__giant duplikátumok).
+- Egyfájlos build újragenerálva, ellenőrzött.
+
+---
 
 ## v5.0 kapu (2026-10-02) — EXECUTED PASS
 - Overflow-x: 0 @ 360/390/430/768/1440 (a 430-as 3px about-glow túllógás javítva:

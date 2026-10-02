@@ -1,7 +1,20 @@
 # SLISZ KLAUDIA — Projektállapot
 
 ## Current goal
-Prémium bemutató látványterv. **v5.0 — AZ EREDETI KÉPEK VISSZATÉRTEK (2026-10-02)**
+Prémium bemutató látványterv. **v5.1 — TIPÓ-REND + TÁRLAT-KATALÓGUS (2026-10-02)**
+
+User visszajelzés: „BETŰTÍPUS ITT IS SZAR / NAGYON SOK A SLISZ KLAUDIA FELIRAT /
+EGY CSOMÓ KÉP CSAK RANDOM ÖSSZE VON DOBÁLVA". Megoldás:
+- Név-csökkentés: footer óriás ELTÁVOLÍTVA (→ Élet virága SVG + mottó), wow ghost ELTÁVOLÍTVA,
+  manifestó/mobilmenü aláírások név nélkül. A név már csak: hero, nav, footer-brand, jogsor.
+- Betű-role-k: marquee + kisebb címkék Manrope caps; Cormorant-italic csak hero 3. sor + emblem-tipó.
+- Galéria: .plates tárlat-katalógus (5 számozott tárlat, váltott igazítás, mindig látható felirat,
+  képjelleg-szerinti keretarányok). Mobil: kép felül, felirat alatta.
+- QA EXECUTED PASS (overflow 0 öt szélességen, konzol 0, 8/8 img).
+
+---
+
+## Előzmény: v5.0 — AZ EREDETI KÉPEK VISSZATÉRTEK (2026-10-02)
 
 A user új, konkrét feladat-listája: eredeti képek használata, galéria, navigáció
 (Rólam/Galéria/Világom/Szemlélet/Kapcsolat), mobil QA. Megvalósítva:

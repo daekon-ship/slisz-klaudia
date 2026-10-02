@@ -313,12 +313,14 @@ html.motion-off .hero__photo{ transition:opacity .5s ease; }
 }
 .marquee__track{ display:flex; width:max-content; animation:marquee 30s linear infinite; }
 .marquee__item{
-  font-family:var(--font-serif); font-style:italic; font-size:1.6rem; white-space:nowrap;
-  color:var(--t-paper); padding-right:2rem;
+  font-family:var(--font-body); font-weight:600; font-size:.82rem;
+  letter-spacing:.34em; text-transform:uppercase; white-space:nowrap;
+  color:var(--t-paper-2); padding-right:2rem;
 }
+.marquee__item i{ font-style:normal; color:var(--gold-dim); }
 .marquee__item b{
-  font-family:var(--font-display); font-style:normal; font-weight:400;
-  color:transparent; -webkit-text-stroke:1px var(--gold-dim);
+  font-weight:700; color:var(--gold-2);
+  -webkit-text-stroke:0;
 }
 .marquee__item i{ font-style:normal; color:var(--gold); font-size:1rem; vertical-align:middle; padding:0 .4rem; }
 @keyframes marquee{ to{ transform:translateX(-50%); } }
@@ -453,64 +455,95 @@ html.motion-off .hero__photo{ transition:opacity .5s ease; }
   color:var(--paper);
 }
 .about__values li:last-child{ border-bottom:1px solid var(--line-dark); }
-.about__values b{ font-family:var(--font-serif); font-style:italic; font-weight:500; color:var(--gold-2); min-width:5.5em; }
+.about__values b{
+  font-family:var(--font-body); font-style:normal; font-weight:700; font-size:.72rem;
+  letter-spacing:.22em; text-transform:uppercase; color:var(--gold-2); min-width:8.5em;
+}
 .about__actions{ margin-top:2.4rem; display:flex; gap:1rem; flex-wrap:wrap; }
 
-/* ---------- 10b. GALÉRIA ---------- */
-.gallery__grid{
-  display:grid; grid-template-columns:repeat(12,1fr);
-  grid-auto-rows:64px;
-  gap:clamp(.8rem,1.6vw,1.4rem);
+/* ---------- 10b. GALÉRIA — számozott tárlat-katalógus ---------- */
+.plates{ list-style:none; display:grid; gap:clamp(2.6rem,5vw,4.5rem); }
+.plate{
+  display:grid;
+  grid-template-columns:minmax(0,7fr) minmax(0,5fr);
+  gap:clamp(1.6rem,3.4vw,3.4rem);
+  align-items:end;
 }
-.g-item{ position:relative; overflow:hidden; border-radius:4px; }
-.g-item img{
-  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+.plate:nth-child(even){ grid-template-columns:minmax(0,5fr) minmax(0,7fr); }
+.plate:nth-child(even) .plate__media{ order:2; }
+.plate:nth-child(even) .plate__label{ order:1; text-align:right; }
+.plate:nth-child(even) .plate__label .plate__rule{ margin-left:auto; }
+.plate__media{
+  position:relative; overflow:hidden; border-radius:4px;
+  box-shadow:0 34px 90px -46px rgba(0,0,0,.85);
+}
+.plate__media::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  box-shadow:inset 0 0 0 1px rgba(243,239,233,.12);
+}
+.plate__media img{
+  width:100%; height:100%; object-fit:cover; display:block;
   transition:transform 1.2s var(--ease);
 }
-.g-item:hover img{ transform:scale(1.05); }
-/* arany tinta-emelés hoverre */
-.g-item::before{
-  content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
-  background:linear-gradient(160deg, rgba(201,163,92,.14) 0%, transparent 45%);
-  opacity:0; transition:opacity .6s var(--ease);
+.plate:hover .plate__media img{ transform:scale(1.03); }
+/* képjelleg-szerinti keretarányok és kivágások — a teljes mű sosem vágódik értelmetlenül */
+.plate:nth-child(1) .plate__media{ aspect-ratio:4/3; }
+.plate:nth-child(1) img{ object-position:center 26%; }   /* fej + izzó szív */
+.plate:nth-child(2) .plate__media{ aspect-ratio:4/4.6; } /* arany virág — álló */
+.plate:nth-child(2) img{ object-position:center; }
+.plate:nth-child(3) .plate__media{ aspect-ratio:4/4.4; } /* Élet virága — álló */
+.plate:nth-child(3) img{ object-position:center 40%; }   /* a virág-kör középen */
+.plate:nth-child(4) .plate__media{ aspect-ratio:1/1; }   /* szív-mandala — négyzetes */
+.plate:nth-child(4) img{ object-position:center; }
+.plate:nth-child(5) .plate__media{ aspect-ratio:4/3.2; } /* önarckép */
+.plate:nth-child(5) img{ object-position:center 28%; }   /* alak + izzó szív */
+/* számjel a képen — mindig látszik, kis, csendes jel */
+.plate__no{
+  position:absolute; top:.9rem; left:1rem; z-index:2;
+  font-family:var(--font-body); font-weight:700; font-size:.7rem;
+  letter-spacing:.22em; color:rgba(243,239,233,.92);
+  background:rgba(18,12,25,.55); border:1px solid rgba(201,163,92,.35);
+  border-radius:99px; padding:.32rem .72rem;
+  backdrop-filter:blur(4px); -webkit-backdrop-filter:blur(4px);
 }
-.g-item:hover::before{ opacity:1; }
-.g-item figcaption{
-  position:absolute; left:0; right:0; bottom:0; z-index:2;
-  padding:2.4rem 1.3rem 1.1rem;
-  background:linear-gradient(transparent, rgba(18,12,25,.88));
-  font-size:.74rem; letter-spacing:.2em; text-transform:uppercase; color:var(--t-paper);
-  opacity:0; transform:translateY(8px);
-  transition:opacity .5s var(--ease), transform .5s var(--ease);
+/* katalógus-felirat — mindig látható, saját oszlopban */
+.plate__label{ padding-bottom:.4rem; }
+.plate__num{
+  font-family:var(--font-body); font-weight:700; font-size:.7rem;
+  letter-spacing:.26em; text-transform:uppercase; color:var(--gold);
 }
-@media(hover:none){
-  .g-item figcaption{ opacity:1; transform:none; }  /* érintőképernyőn mindig látszik */
+.plate__title{
+  font-family:var(--font-display); font-weight:450;
+  font-size:clamp(1.5rem, 2.6vw, 2.3rem); line-height:1.12;
+  color:var(--paper); margin-top:.55rem; text-wrap:balance;
 }
-.g-item:hover figcaption{ opacity:1; transform:none; }
-.g-item::after{
-  content:""; position:absolute; inset:0; pointer-events:none;
-  box-shadow:inset 0 0 0 1px rgba(243,239,233,.10);
+.plate__tag{
+  font-family:var(--font-body); font-weight:600; font-size:.8rem;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--t-paper-2);
+  margin-top:.5rem;
 }
-/* Aszimmetrikus elrendezés — 12 oszlopos, képjelleg-szerinti kivágások */
-.gi--a{ grid-column:1/6; grid-row:1/span 7; }        /* fényáztatott alak — négyzetes */
-.gi--b{ grid-column:6/13; grid-row:1/span 4; }       /* arany virág — széles sáv */
-.gi--c{ grid-column:6/10; grid-row:5/span 6; }       /* Élet virága — álló */
-.gi--d{ grid-column:10/13; grid-row:5/span 6; }      /* szív-mandala */
-.gi--e{ grid-column:1/6; grid-row:8/span 4; }        /* portré — panoráma-keretben */
-.gi--a img{ object-position:center 24%; }            /* fej + szív a keretben */
-.gi--c img{ object-position:center 42%; }            /* virág-kör középen */
-.gi--d img{ object-position:center; }                /* mandala szimmetrikus */
-.gi--e img{ object-position:center 30%; }            /* alak + izzó szív látszódjon */
-/* számjel a képen */
-.g-item .idx{
-  position:absolute; top:1rem; left:1.1rem; z-index:2;
-  font-family:var(--font-serif); font-style:italic;
-  color:rgba(243,239,233,.85); font-size:.95rem; letter-spacing:.08em;
-  opacity:0; transition:opacity .5s;
+.plate__rule{
+  display:block; width:3.4rem; height:1px; margin-top:1.1rem;
+  background:linear-gradient(90deg, var(--gold), transparent);
 }
-.g-item:hover .idx{ opacity:1; }
-@media(hover:none){
-  .g-item .idx{ opacity:1; }
+
+@media (max-width:1060px){
+  .plates{ gap:2.4rem; }
+}
+
+/* mobil: minden tárlat kép fölötti, bal zárt felirattal */
+@media (max-width:760px){
+  .plate, .plate:nth-child(even){
+    grid-template-columns:1fr;
+    gap:.9rem;
+  }
+  .plate:nth-child(even) .plate__media{ order:1; }
+  .plate:nth-child(even) .plate__label{ order:2; text-align:left; }
+  .plate:nth-child(even) .plate__label .plate__rule{ margin-left:0; }
+  .plate:nth-child(2) .plate__media{ aspect-ratio:4/4.2; }
+  .plate:nth-child(3) .plate__media{ aspect-ratio:4/4.2; }
+  .plate:nth-child(5) .plate__media{ aspect-ratio:4/3.4; }
+  .plate__title{ font-size:1.34rem; }
 }
 
 /* ---------- 11. WOW FULL-BLEED ---------- */
@@ -525,11 +558,7 @@ html.motion-off .hero__photo{ transition:opacity .5s ease; }
   background:radial-gradient(75% 62% at 50% 42%, transparent 52%, rgba(18,12,25,.78) 100%);
 }
 .wow__ghost{
-  position:absolute; right:clamp(.6rem,3vw,2.4rem); bottom:clamp(4.5rem,12vh,8rem);
-  font-family:var(--font-serif); font-style:italic; font-weight:400;
-  font-size:clamp(3.6rem, 9vw, 8.5rem); letter-spacing:.02em; line-height:1;
-  color:transparent; -webkit-text-stroke:1px rgba(201,163,92,.42);
-  pointer-events:none; user-select:none; z-index:0;
+  display:none; /* kivezetve: a név- és szövegdublálás helyett tiszta vizuális pillanat */
 }
 .wow__content{
   position:relative; width:var(--w-wide); margin-inline:auto;
@@ -580,7 +609,8 @@ html.motion-off .hero__photo{ transition:opacity .5s ease; }
   border-top:1px solid var(--line); padding-top:1.2rem;
 }
 .symbol__list .no{
-  font-family:var(--font-serif); font-style:italic; font-size:1.05rem; color:var(--gold);
+  font-family:var(--font-body); font-weight:700; font-size:.78rem;
+  letter-spacing:.18em; color:var(--gold); padding-top:.2em;
 }
 .symbol__list h3{ font-family:var(--font-display); font-weight:500; font-size:1.15rem; }
 .symbol__list p{ margin-top:.25rem; font-size:.92rem; color:var(--t-ink); }
@@ -668,18 +698,22 @@ html.motion-off .hero__photo{ transition:opacity .5s ease; }
 }
 .footer__col a:hover{ color:var(--gold-2); padding-left:.4rem; }
 
-.footer__giant{
-  font-family:var(--font-display); font-weight:600;
-  font-size:clamp(3.4rem, 13.5vw, 12.5rem);
-  line-height:1; letter-spacing:-.02em; white-space:nowrap;
-  text-align:center; user-select:none;
-  padding:2.5rem 0 1.5rem;
+/* a név-ismétlés kivezetve: csendes mottó + Élet virága jellem helyette */
+.footer__motto{
+  display:flex; align-items:center; justify-content:center; gap:1.1rem;
+  padding:2.6rem 0 1.8rem;
+  color:var(--gold-dim);
+  user-select:none;
 }
-.footer__giant span{
-  color:transparent; -webkit-text-stroke:1px rgba(243,239,233,.34);
-  transition:color .7s ease, -webkit-text-stroke-color .7s ease;
+.footer__motto svg{
+  width:clamp(44px, 6vw, 64px); height:auto; flex:none;
+  animation:spin 80s linear infinite;
 }
-.footer__giant:hover span{ color:var(--gold); -webkit-text-stroke-color:var(--gold); }
+.footer__motto span{
+  font-family:var(--font-body); font-weight:600; font-size:.76rem;
+  letter-spacing:.4em; text-transform:uppercase; color:var(--t-paper-2);
+  white-space:nowrap;
+}
 
 .footer__bottom{
   display:flex; align-items:center; justify-content:space-between; gap:1.2rem; flex-wrap:wrap;
@@ -713,12 +747,6 @@ html.motion-off .hero__photo{ transition:opacity .5s ease; }
   .motif:nth-child(2), .motif:nth-child(4){ transform:none; }
   .about{ grid-template-columns:1fr; gap:3rem; }
   .about__media{ max-width:560px; }
-  .gallery__grid{ grid-auto-rows:52px; }
-  .gi--a{ grid-column:1/8; grid-row:auto/span 8; }
-  .gi--b{ grid-column:8/13; grid-row:auto/span 8; }
-  .gi--c{ grid-column:1/6; grid-row:auto/span 8; }
-  .gi--d{ grid-column:6/13; grid-row:auto/span 6; }
-  .gi--e{ grid-column:1/13; grid-row:auto/span 7; }
   .symbol__grid{ grid-template-columns:1fr; }
   .symbol__media{ max-width:420px; margin-inline:auto; }
   .section__head--split{ grid-template-columns:1fr; gap:1.4rem; align-items:start; }
@@ -762,19 +790,15 @@ html.motion-off .hero__photo{ transition:opacity .5s ease; }
   /* ---- Rólam ---- */
   .about__badge{ right:.9rem; bottom:1rem; padding:.85rem 1.15rem; }
 
-  /* ---- Galéria: saját mobil-kompozíció ---- */
-  .gallery__grid{ display:flex; flex-direction:column; gap:1rem; }
-  .g-item{ aspect-ratio:4/3; }
-  .gi--a, .gi--c{ aspect-ratio:3/4; }
-  .gi--b, .gi--d, .gi--e{ aspect-ratio:4/3; }
+  /* ---- Galéria: tárlatok egymás alatt (a .plate szabályok a 10b blokkban) ---- */
 
   .values{ grid-template-columns:1fr; }
   .values__item{ padding-left:1.1rem; }
-  .wow__ghost{ font-size:2.6rem; top:6.2rem; bottom:auto; right:1rem; }
   .cta__pattern{ right:-40%; width:100vw; opacity:.35; }
   .cta__actions .btn{ width:100%; justify-content:center; }
   .footer__grid{ grid-template-columns:1fr; gap:1.8rem; }
-  .footer__giant{ white-space:normal; line-height:1.05; }
+  .footer__motto{ gap:.8rem; }
+  .footer__motto span{ letter-spacing:.26em; font-size:.68rem; }
   .footer__bottom{ flex-direction:column; align-items:flex-start; gap:.7rem; }
   .totop{ right:1rem; bottom:1rem; }
 }
