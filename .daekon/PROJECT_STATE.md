@@ -1,7 +1,29 @@
 # SLISZ KLAUDIA — Projektállapot
 
 ## Current goal
-Prémium bemutató látványterv. **v5.1 — TIPÓ-REND + TÁRLAT-KATALÓGUS (2026-10-02)**
+Prémium bemutató látványterv. **v6.0 — TELJES VIZUÁLIS ÚJRATERV: editorial művészeti portfólió (2026-10-02)**
+
+User utasítás: „A JELENLEGI OLDALT NE FOLTOZGASD. TERVEZD ÚJRA TELJESEN VIZUÁLISAN."
+— galéria-szintű portfólió, az alkotások a főszereplők, ivory/grafit/bronz, nagy tipó.
+Megvalósítva (teljes újraírás: index.html, css/style.css, js/main.js):
+- HERO: klaudia-hero teljes bal félan, editorial tipó jobbra (Fraunces 340, 132px),
+  kép-maszkos belépés + sor-felhúzás, lassú parallax (data-plx)
+- ALKOTÁSOK: monumentális széles (klaudia-hero) → statement → wide arany virág →
+  statement → pár (Élet virága + Szív, elcsúsztatva) → statement → monument önarckép
+- RÓLAM: mandala részlet-zoom (about__detail, scale 1.65) + 4 sor valós szöveg
+- KAPCSOLAT: grafit lezárás „Beszéljünk." + egy mondat; nincs hamarosan-placeholder
+- FOOTER: full-bleed grafit, Slisz Klaudia · © 2026
+- JS: ~90 sor (reveal, parallax, nav, mobilmenü); mozgás-kapcsoló ELTÁVOLÍTVA
+  (prefers-reduced-motion tisztelt)
+- OG-kép újragenerálva (make_og_image.ps1): ivory + fotó + editorial tipó
+- QA EXECUTED PASS: overflow 0 @360/390/430/768/1440; konzol 0; 7/7 img;
+  0 „hamarosan/bemutató/generatív" szó; mobilmenü él; desktop címsorok 132/144px
+- QA-módszer: headless Edge screenshotok (preview_screenshot módzusan törött),
+  _qa_scroll.html QA-build (reveal felülbírálás + body-offset scroll)
+
+---
+
+## Előzmény: v5.1 — TIPÓ-REND + TÁRLAT-KATALÓGUS (2026-10-02)
 
 User visszajelzés: „BETŰTÍPUS ITT IS SZAR / NAGYON SOK A SLISZ KLAUDIA FELIRAT /
 EGY CSOMÓ KÉP CSAK RANDOM ÖSSZE VON DOBÁLVA". Megoldás:

@@ -14,6 +14,11 @@ _qa_*.html
 _contact.html
 make_contact.ps1
 _qa_serve.js
+_qa_*.png
+_qa_*.jpg
+_qas_*.png
+_qas_*.jpg
+make_qa_scroll.js
 
 # FTP hitelesítés — SOHA nem kerül repóba!
 deploy/ftp-credentials.ps1
