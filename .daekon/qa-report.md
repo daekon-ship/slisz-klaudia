@@ -1,6 +1,22 @@
 # DAEKON minőségi kapu — SLISZ KLAUDIA
-Dátum: 2026-10-02 · **v5.1 — tipó-rend + tárlat-katalógus** ("BETŰTÍPUS SZAR / SOK A NÉV / RANDOM KÉPEK" kérésre)
+Dátum: 2026-10-02 · **v6.0 — teljes vizuális újraterv, editorial művészeti portfólió**
 Kontextus: ügyfélnek bemutatandó prémium látványterv (statikus one-page)
+
+## v6.0 kapu (2026-10-02) — EXECUTED PASS
+- Overflow: 0 @360/390/430/768/1440 (élő preview + headless Edge)
+- Konzol: 0 hiba · 7/7 img betölt (görgetés után is; a "broken" a lazy-load érthető állapota)
+- Placeholder-szken: 0 találat („hamarosan", „Bemutató látványterv", „generatív")
+- Desktop tipó: hero 132px, contact 144px (clamp-lál 360px-en is biztonságos)
+- Mobil: hero fotó 56svh + tipó alatta; művek közel teli szélességben; menü prémium, él
+- Képvizsgálat: headless Edge screenshotok (hero/w1–w4/rolam/kapcs/mobil×5/tablet×2)
+  — hero-pár ritmus, statement-blokkok, mandala részlet-zoom, grafit lezárás mind rendben
+- Animációk: reveal + clip-path maszk + parallax; prefers-reduced-motion: minden mozdulatlan
+- OG-kép: új (ivory + fotó + editorial tipó), élő 200
+- Éles: 08aad9c → index 200, új jelölők élőben visszakeresve, 0 maradványszó
+
+---
+
+## Előzmény: v5.1 kapu (2026-10-02) — EXECUTED PASS
 
 ## v5.1 kapu (2026-10-02) — EXECUTED PASS
 - Név-ismétlés kivezetve: footer óriás outline → csendes mottó (Élet virága SVG + Fény·Virág·Geometria·Szív);
