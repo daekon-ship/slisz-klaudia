@@ -1,6 +1,20 @@
 # DAEKON minőségi kapu — SLISZ KLAUDIA
-Dátum: 2026-10-02 · **v6.0 — teljes vizuális újraterv, editorial művészeti portfólió**
+Dátum: 2026-10-02 · **v7.0 — tartalmi alapcsere: mentor-profil**
 Kontextus: ügyfélnek bemutatandó prémium látványterv (statikus one-page)
+
+## v7.0 kapu (2026-10-02) — EXECUTED PASS
+- Tartalom: csak ellenőrzött adatok (SCC szerepek, Budapest, e-mail, tel, SCC-profil, 3 jelvény)
+- Művészeti állítások: 0 maradék („alkotásaim"/„önarckép"/„Vizuális alkotó" élőben nem találhatók)
+- Linkek: mailto:klaudia.slisz@gmail.com · tel:+36203652410 · https://scc.world/hu/members/118 — mind jelen, mind kattintható (hero + kapcsolat)
+- Képek dekorációs szerepben (üres alt / aria-hidden strip); nem uralják az oldalt
+- Meta: title/description/OG a mentorprofilra írva; OG-kép v7 (ivory, Executive mentor, Budapest)
+- Overflow: 0 @360/390/430/768/1440 (a 390-es 34px-es about-name hiba javítva: nbsp eltávolítás + break-word)
+- Konzol: 0 hiba · képek mind betöltnek
+- Éles: 4f4ee4e → index 200, mentor-tartalom élőben visszakeresve (15 találat), OG 200
+
+---
+
+## Előzmény: v6.0 kapu (2026-10-02) — EXECUTED PASS
 
 ## v6.0 kapu (2026-10-02) — EXECUTED PASS
 - Overflow: 0 @360/390/430/768/1440 (élő preview + headless Edge)
