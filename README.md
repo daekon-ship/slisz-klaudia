@@ -1,21 +1,21 @@
 # SLISZ KLAUDIA — Vizuális világ
-## Bemutató látványterv · Átadási dokumentum · v3.0 (2026-10-01)
+## Bemutató látványterv · Átadási dokumentum · v5.0 (2026-10-02)
 
 **Élő demó:** https://daekon-ship.github.io/slisz-klaudia/
 **GitHub:** https://github.com/daekon-ship/slisz-klaudia
 
 ---
 
-## 0. v3.0 — fotó-mentes, generatív vonalrajz (újragépelve)
+## 0. v5.0 — a saját képek visszatérnek, generatív réteggel egyesítve
 
-Az ügyfél kérésére az oldal **nem használja Klaudia fotóit**. Helyette minden motívumot **élő, generatív vonalrajz** jelenít meg (canvas):
+A látványterv most **az öt eredeti képet** használja (a v2-ből visszaállítva, web-optimalizált méretben), a v3–v4 generatív vonalrajz-motorja felette él tovább:
 
-- **Hero** — az Élet virága + szív + spirál + fényhaló nagy generatív kompozíciója, betöltéskor vonalanként megrajzolva, lassan lebegő aranyporszemekkel
-- **Ősformák** — négy élő vonalrajz-kártya: Fény (koncentrikus gyűrűk), Hajtás (botanikai szár-levél), Szív, Aritmia (aranyspirál)
-- **Alkotások** — interaktív műlista: kattintásra/érintésre a nagy vászon a kiválasztott mű vonalrajzával „él fel” (progresszív rajzolás)
-- **WOW sáv** — minden betöltéskor újra „születő” arany-bloom: ~80 véletlen ív a tökéletes gyűrűk körül (sosem ugyanaz)
-- **Editorial tipográfia** — Fraunces + Cormorant Garamond + Manrope; óriás hero, outline sorok, függőleges ghost-szó
-- **Film-grain, cursor-fény, marquee, footer óriás név** — megtartva a v2-ből
+- **Hero** — a `klaudia-hero.jpg` fényáztatott alakja halvány arany-fátyol alatt; felette az Élet virága + izzó vörös szívmag generatív réteg
+- **Rólam** — portré + a v2-ből átment, valós bemutatkozó szöveg
+- **Galéria** — mind az 5 eredeti kép aszimmetrikus album-kompozícióban, képjelleg-szerinti kivágásokkal
+- **Ősformák** — négy élő vonalrajz-kártya (metszet-vonalak, porszem-stipple) megmaradt
+- **Szimbólum** — a `sziv-elet-viragaban.jpg` körül forgó pálya-gyűrű
+- **WOW sáv** — generatív rózsablond-ablak (minden betöltéskor új)
 - **Mozgás-kapcsoló** a láblécben (Windows MinAnimate-kvirk elleni védelem megmaradt)
 
 ## 1. Mit kaptál
@@ -24,7 +24,7 @@ Az ügyfél kérésére az oldal **nem használja Klaudia fotóit**. Helyette mi
 |---|---|
 | **`latvanyterv-egyfajlban.html`** | ⭐ **AZ ÁTADHATÓ VERZIÓ.** Egyetlen fájl, minden kép beágyazva. Küldd el bárhogy (e-mail, Messenger, pendrive) — dupla kattintásra megnyílik böngészőben, internet sem kell hozzá. |
 | `index.html` + `css/` + `js/` + `assets/img/` | A „műhelybeli", szerkeszthető változat — ebben dolgozunk tovább. |
-| `assets/img/` | Fotó-mentes grafika: `favicon.svg` (Élet virága), `og-image.png` (generatív megosztókép). A fotók **nincsenek használatban** — az eredeti fájlok a gyökérben érintetlenek, de fel sem töltődnek releváns helyre. |
+| `assets/img/` | `favicon.svg`, `og-image.png` + **az 5 eredeti kép** optimalizált változata: `klaudia-hero.jpg`, `klaudia-portre.jpg`, `arany-virag.jpg`, `elet-viraga.jpg`, `sziv-elet-viragaban.jpg`. Az eredeti, felbontásos fájlok a gyökérben maradnak (gitignore). |
 | `.daekon/` | Belső munkadokumentáció: döntések, QA-napló, projektállapot. (Nem kell átadni.) |
 
 ## 2. Hogyan nézd meg (3 lépés)
@@ -37,12 +37,13 @@ Az ügyfél kérésére az oldal **nem használja Klaudia fotóit**. Helyette mi
 
 | Szekció | Vizuál | Szerep |
 |---|---|---|
-| HERO | generatív Élet virága + szív + spirál canvas | Nagy nyitó kompozíció, élő porszemek |
+| HERO | fotó (klaudia-hero) + generatív Élet virága + vörös szívmag | Nagy nyitó kompozíció, élő porszemek |
 | Manifestó | — | Csendes átvezetés, soronkénti belépéssel |
+| Rólam | portré + badge | Valós bemutatkozás |
 | Ősformák | 4 élő vonalrajz-kártya | A motívumok nyelvtana |
-| Alkotások | interaktív váltó-vászon | Az 5 mű vonalrajz-értelmezése |
-| WOW sáv | generatív arany-bloom (mindig új) | Full-screen pillanat |
-| Szimbólum | forgó Élet virága SVG | 3 jelentésréteg |
+| Galéria | 5 eredeti kép, aszimmetrikus album-rács | A saját művek, képjelleg-szerinti kivágással |
+| WOW sáv | generatív rózsablond (mindig új) | Full-screen pillanat |
+| Szimbólum | szív-mandala fotó + forgó pálya-gyűrű | 3 jelentésréteg |
 | Szemlélet | — | 3 irányadó elv |
 | Kapcsolat / CTA | — | **Hamarosan állapot** — lásd lent |
 
@@ -52,7 +53,7 @@ Az átadási elv: **semmi kitalált adat.** Amíg nincs forrás, az oldalon nem 
 - e-mail, telefonszám, cím, nyitvatartás
 - szolgáltatáslista, árak
 - vélemények, mérföldkövek, statisztikák
-- **és — a kérés szerint — Klaudia fotói sem.** A vizuális világot a motívumai generatív vonalrajzként hordozzák; ha később mégis képeket szeretne, a v2-es fotós verzió a git előzményből 1 paranccsal visszahozható.
+- (v5.0-tól Klaudia öt saját képe az oldal része — csak ezek, más kép nem kerül fel.)
 
 A Kapcsolat szekció ezért jelenleg „hamarosan" gombokat mutat. Amint megvannak a valódi elérhetőségek, 5 perc alatt bekerülnek.
 

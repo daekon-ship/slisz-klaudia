@@ -11,6 +11,9 @@ Szív élet virágában.jpg
 # Segéd / QA
 make_qa_embedded.ps1
 _qa_*.html
+_contact.html
+make_contact.ps1
+_qa_serve.js
 
 # FTP hitelesítés — SOHA nem kerül repóba!
 deploy/ftp-credentials.ps1

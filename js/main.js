@@ -142,23 +142,6 @@
     return { stipple: true, pts, color: o.color || GOLD2 };
   };
 
-  /* oszlop/alak stipple (elliptikus eloszlás) */
-  const stippleShape = (cx, cy, rx, ry, n, o = {}) => {
-    const pts = [];
-    for (let i = 0; i < n; i++) {
-      const a = rand(0, TAU);
-      const rr = Math.sqrt(Math.random());
-      const wob = rand(.86, 1.06);
-      pts.push({
-        x: cx + Math.cos(a) * rx * rr * wob,
-        y: cy + Math.sin(a) * ry * rr * wob,
-        r: rand(.4, o.rMax || 1.5),
-        a: rand(o.aMin ?? .08, o.aMax ?? .4)
-      });
-    }
-    return { stipple: true, pts, color: o.color || GOLD2 };
-  };
-
   /* metszet: párhuzamos vonalak a görbe mentén (normál-irányú eltolás) */
   function engrave(pts, layers = 2, gap = 1.7, attrs = {}) {
     if (layers <= 1 || !pts || pts.length < 3) return [{ pts, ...attrs }];
@@ -469,157 +452,6 @@
   document.querySelectorAll('.motif__art canvas').forEach(motifCanvas);
 
   /* ============================================================
-     ALKOTÁSOK — mű-specifikus jelenetek a nagy vásznon
-     ============================================================ */
-  const worksCv = document.getElementById('worksCanvas');
-  const worksCap = document.getElementById('worksCaption');
-  const worksWm = document.getElementById('worksWm');
-  const worksItems = [...document.querySelectorAll('.works__item')];
-  let worksAnim = null;
-  const workCache = {};
-
-  const workScenes = {
-    /* 01 — Fényáztatott alak: haló + porszem-alak (álló alak sugallata) */
-    halo(w, h) {
-      const cx = w / 2, R = Math.min(w, h) * .24;
-      const hy = h * .27, fy = h * .62;
-      const P = [];
-      P.push(...engrave(circle(cx, hy, R * .78, 120), 2, 1.8, { w: 1.2, a: .9, glow: 10 }));
-      P.push({ pts: circle(cx, hy, R * 1.12, 120), w: .7, a: .35, dash: [2, 8] });
-      for (let i = 0; i < 14; i++) {
-        const a = (TAU / 14) * i + .2;
-        P.push({
-          pts: [{ x: cx + Math.cos(a) * R * .9, y: hy + Math.sin(a) * R * .9 },
-                { x: cx + Math.cos(a) * R * 1.34, y: hy + Math.sin(a) * R * 1.34 }],
-          w: .6, a: .3, color: GOLD2
-        });
-      }
-      /* alak: porszem-oszlop + fej */
-      P.push(stippleShape(cx, fy, R * .5, h * .19, 330, { aMax: .62, rMax: 1.8 }));
-      P.push(stippleShape(cx, hy, R * .3, R * .3, 70, { aMax: .6, rMax: 1.5, color: GOLD2 }));
-      /* váll-görbe */
-      P.push({ pts: cubic({ x: cx - R * .48, y: fy - h * .13 }, { x: cx - R * .3, y: fy - h * .19 }, { x: cx + R * .3, y: fy - h * .19 }, { x: cx + R * .48, y: fy - h * .13 }, 60), w: .9, a: .65, color: GOLD2 });
-      P.push({ pts: [{ x: cx - R * 1.1, y: h * .86 }, { x: cx + R * 1.1, y: h * .86 }], w: .7, a: .35, dash: [1, 6] });
-      P.push(stipple(cx, h * .8, R * .9, R * 1.7, 90, { aMax: .25 }));
-      return P;
-    },
-    /* 02 — Arany virág: napraforgó (rózsa-szirmok + fibonacci magfej) */
-    flower_gold(w, h) {
-      const cx = w / 2, cy = h * .47, R = Math.min(w, h) * .26;
-      const P = [];
-      P.push(...engrave(rose(cx, cy, R * 1.28, 12, 0, 420), 2, 2.0, { w: 1.05, a: .8, glow: 8 }));
-      P.push({ pts: rose(cx, cy, R * .92, 12, Math.PI / 12, 380), w: .7, a: .45 });
-      P.push({ pts: circle(cx, cy, R * .58, 100), w: .8, a: .5 });
-      P.push(fibDots(cx, cy, R * .5, 110, 1.9));
-      /* szár-lehullás */
-      P.push({ pts: cubic({ x: cx, y: cy + R * 1.3 }, { x: cx + R * .3, y: cy + R * 1.7 }, { x: cx - R * .2, y: cy + R * 2.0 }, { x: cx + R * .1, y: cy + R * 2.35 }, 60), w: 1, a: .5 });
-      P.push({ pts: circle(cx, cy, R * 1.62, 140), w: .6, a: .22, dash: [2, 9] });
-      P.push(stipple(cx, cy, R * 1.35, R * 2.1, 90, { aMax: .3 }));
-      return P;
-    },
-    /* 03 — Élet virága */
-    flower(w, h) {
-      const cx = w / 2, cy = h / 2, R = Math.min(w, h) * .27;
-      const P = flowerOfLife(cx, cy, R);
-      P.push({ pts: circle(cx, cy, R * 1.72, 140), w: .85, a: .5 });
-      for (let i = 0; i < 24; i++) {
-        const a = (TAU / 24) * i;
-        P.push({
-          pts: [{ x: cx + Math.cos(a) * R * 1.72, y: cy + Math.sin(a) * R * 1.72 },
-                { x: cx + Math.cos(a) * R * 1.82, y: cy + Math.sin(a) * R * 1.82 }],
-          w: .6, a: .3
-        });
-      }
-      P.push({ pts: circle(cx, cy, R * 1.98, 140), w: .6, a: .2, dash: [1, 8] });
-      P.push({ pts: [{ x: cx, y: cy }], r: 3, a: .9, glow: 14, color: GOLD2 });
-      P.push(stipple(cx, cy, R * 1.9, R * 2.5, 70, { aMax: .22 }));
-      return P;
-    },
-    /* 04 — Szív a virágban: metszet-szív + vörös mag + pulzus-gyűrűk */
-    heart(w, h) {
-      const cx = w / 2, cy = h * .5, s = Math.min(w, h) / 46;
-      const P = [];
-      P.push(...engrave(heart(cx, cy, s, 140), 3, 2.2, { w: 1.3, a: .95, glow: 10 }));
-      P.push({ fill: true, pts: heart(cx, cy, s * .5, 100), color: redA(.9), glow: 18 });
-      P.push(stipple(cx, cy - s * .3, 0, s * 1.15, 110, { aMax: .35 }));
-      P.push({ pts: circle(cx, cy - s * .2, s * 1.9, 110), w: .7, a: .4, dash: [2, 7] });
-      P.push({ pts: circle(cx, cy - s * .2, s * 2.5, 110), w: .6, a: .22, dash: [1, 9] });
-      return P;
-    },
-    /* 05 — A szív tartja: arany spirál-portré */
-    spiral(w, h) {
-      const cx = w / 2, cy = h / 2, R = Math.min(w, h) * .3;
-      const P = [];
-      P.push(...engrave(spiral(cx, cy, R * .05, 3.6, 300), 3, 1.9, { w: 1.15, a: .9, glow: 8 }));
-      P.push({ ...fibDots(cx, cy, R * 1.05, 70, 1.8), color: GOLD2 });
-      P.push({ pts: circle(cx, cy, R * 1.35, 130), w: .7, a: .35, dash: [2, 8] });
-      const hs = R / 40;
-      P.push({ pts: heart(cx + R * .92, cy + R * .78, hs, 90), w: .9, a: .65, color: RED, glow: 8 });
-      P.push(stipple(cx + R * .92, cy + R * .78, 0, hs * 1.6, 40, { aMax: .3, color: RED, rMax: 1.2 }));
-      P.push(stipple(cx, cy, R * 1.4, R * 2.1, 110, { aMax: .3 }));
-      return P;
-    }
-  };
-  workScenes.sprout = workScenes.flower_gold; // "Arany virág" a 02
-
-  function workPaths(kind, w, h) {
-    const key = kind + '|' + w + '|' + h;
-    if (!workCache[key]) workCache[key] = (workScenes[kind] || workScenes.halo)(w, h);
-    return workCache[key];
-  }
-
-  function paintWork(kind, t = 1) {
-    if (!worksCv) return;
-    const { ctx, w, h } = fitCanvas(worksCv);
-    ctx.clearRect(0, 0, w, h);
-    drawPaths(ctx, workPaths(kind, w, h), t);
-  }
-
-  function setWorkCaption(item) {
-    if (!worksCap) return;
-    worksCap.textContent = '';
-    worksCap.append(item.dataset.title, ' ');
-    const note = document.createElement('b');
-    note.textContent = item.dataset.note || '';
-    worksCap.append(note);
-    if (worksWm) {
-      const no = item.querySelector('.works__no');
-      worksWm.textContent = no ? no.textContent : '';
-    }
-  }
-
-  function setWork(item) {
-    if (!item || item.classList.contains('is-active')) return;
-    worksItems.forEach(i => i.classList.remove('is-active'));
-    item.classList.add('is-active');
-    const stage = worksCv && worksCv.parentElement;
-    if (stage && matchMedia('(max-width:760px)').matches) {
-      const r = stage.getBoundingClientRect();
-      if (r.top < -10) stage.scrollIntoView({ behavior: motionOn() ? 'smooth' : 'auto', block: 'start' });
-    }
-    setWorkCaption(item);
-    if (!motionOn()) return paintWork(item.dataset.shape, 1);
-    const t0 = performance.now(), dur = 1500, kind = item.dataset.shape;
-    cancelAnimationFrame(worksAnim);
-    const step = now => {
-      const t = clamp01((now - t0) / dur);
-      paintWork(kind, t);
-      if (t < 1) worksAnim = requestAnimationFrame(step);
-    };
-    worksAnim = requestAnimationFrame(step);
-  }
-
-  worksItems.forEach(item => {
-    item.setAttribute('tabindex', '0');
-    item.setAttribute('role', 'button');
-    item.addEventListener('click', () => setWork(item));
-    item.addEventListener('mouseenter', () => { if (matchMedia('(pointer:fine)').matches) setWork(item); });
-    item.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setWork(item); }
-    });
-  });
-
-  /* ============================================================
      WOW — rózsablond ablak: rózsa-görbe + bordák + vörös közép
      ============================================================ */
   const wowCv = document.getElementById('wowArt');
@@ -861,12 +693,9 @@
     rsT = setTimeout(() => {
       heroScene = null; heroOff = null;
       wowScene = null; wowOff = null;
-      Object.keys(workCache).forEach(k => delete workCache[k]);
       document.querySelectorAll('.motif__art canvas').forEach(cv => { cv._cache = null; cv._key = null; });
       paintHero(1, 0, 0);
       if (wowVisible || !lowPower) paintWow(0, 0);
-      const active = document.querySelector('.works__item.is-active');
-      if (active) paintWork(active.dataset.shape, 1);
     }, 160);
   });
 
@@ -874,11 +703,6 @@
   function boot() {
     splitTitle();
     paintHero(0, 0, 0);
-    const active = document.querySelector('.works__item.is-active');
-    if (active) {
-      setWorkCaption(active);
-      paintWork(active.dataset.shape, 1);
-    }
     const ready = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
     ready.then(() => requestAnimationFrame(() => requestAnimationFrame(bootHero)));
   }

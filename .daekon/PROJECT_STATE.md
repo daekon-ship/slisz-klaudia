@@ -1,7 +1,27 @@
 # SLISZ KLAUDIA — Projektállapot
 
 ## Current goal
-Prémium bemutató látványterv. **v4.0 — MŰVÉSZETI MOTOR-ÚJRAÉPÍTÉS (élő: 2fbac2d)**
+Prémium bemutató látványterv. **v5.0 — AZ EREDETI KÉPEK VISSZATÉRTEK (2026-10-02)**
+
+A user új, konkrét feladat-listája: eredeti képek használata, galéria, navigáció
+(Rólam/Galéria/Világom/Szemlélet/Kapcsolat), mobil QA. Megvalósítva:
+- 5 kép git-blobból visszaállítva 5675998-ból (hash-párosítás a gyökér-forrásokkal),
+  assets/img-be: klaudia-hero, klaudia-portre, arany-virag, elet-viraga, sziv-elet-viragaban
+- Hero: fotó-réteg (halvány arany fátyol) + generatív virág/szívmag felette
+- Rólam szekció (v2 valós szövegek + portré + badge), galéria (v2 aszimmetrikus
+  album-rács portolva, képjelleg-szerinti object-position kivágások)
+- Nav + mobilmenü + footer: Rólam, Galéria, Világom, Szemlélet, Kapcsolat
+- Szimbólum: szív-mandala fotó körül forgó pálya-gyűrű (SVG-disc elhagyva)
+- works generatív váltó ELTÁVOLÍTVA (a valódi képek lettek a galéria)
+- QA: overflow 0 @360/390/430/768/1440; konzol tiszta; 8/8 img betölt;
+  anchor 76px scroll-padding (duplázódó scroll-margin javítva);
+  about-glow 430px túllógás javítva (section--ink2 overflow:clip)
+- OG/meta szövegek vissza fotós világra; preload klaudia-hero.jpg
+- v4-es művészeti motor megmaradt (Ősformák, WOW, hero-generatív réteg)
+
+---
+
+## Előzmény: v4.0 — MŰVÉSZETI MOTOR-ÚJRAÉPÍTÉS (élő: 2fbac2d)
 
 Ügyfél-utasítások: „ne használd fel a képeit, nagyon gagyi lett" → v3.0 fotó-mentes
 generatív újraépítés; majd "RITKA SZAR SOKKAL JOBBAT CSINÁLJ ELEMEZD ÁT SOKSZOR" →

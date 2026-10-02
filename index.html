@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Slisz Klaudia — Vizuális világ</title>
-  <meta name="description" content="Slisz Klaudia vizuális világa — fény, hajtás, szív, aritmia. Generatív látványterv vonalrajzzal.">
+  <meta name="description" content="Slisz Klaudia vizuális világa — fény, virág, geometria és szív. Bemutató látványterv a saját képei köré építve.">
   <meta name="theme-color" content="#17101f">
   <meta property="og:title" content="Slisz Klaudia — Vizuális világ">
-  <meta property="og:description" content="Fény, hajtás, szív, aritmia — egy saját, érzékeny képi univerzum, vonalrajzzal elmesélve.">
+  <meta property="og:description" content="Fény, virág, geometria és szív — egy saját, érzékeny képi univerzum a saját képei köré építve.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://daekon-ship.github.io/slisz-klaudia/">
   <meta property="og:image" content="https://daekon-ship.github.io/slisz-klaudia/assets/img/og-image.png">
@@ -17,7 +17,8 @@
   <meta property="og:locale" content="hu_HU">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Slisz Klaudia — Vizuális világ">
-  <meta name="twitter:description" content="Fény, hajtás, szív, aritmia — egy saját, érzékeny képi univerzum, vonalrajzzal elmesélve.">
+  <meta name="twitter:description" content="Fény, virág, geometria és szív — egy saját, érzékeny képi univerzum a saját képei köré építve.">
+  <link rel="preload" as="image" href="assets/img/klaudia-hero.jpg">
   <meta name="twitter:image" content="https://daekon-ship.github.io/slisz-klaudia/assets/img/og-image.png">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/img/favicon.svg">
@@ -41,9 +42,9 @@
       <a class="nav__brand" href="#top">Slisz <em>Klaudia</em></a>
       <nav aria-label="Fő navigáció">
         <ul class="nav__links">
-          <li><a class="nav__link" href="#osformak">Ősformák</a></li>
-          <li><a class="nav__link" href="#alkotasok">Alkotások</a></li>
-          <li><a class="nav__link" href="#szimbolum">Szimbólum</a></li>
+          <li><a class="nav__link" href="#rolam">Rólam</a></li>
+          <li><a class="nav__link" href="#galeria">Galéria</a></li>
+          <li><a class="nav__link" href="#vilag">Világom</a></li>
           <li><a class="nav__link" href="#szemlelet">Szemlélet</a></li>
         </ul>
       </nav>
@@ -55,9 +56,9 @@
   </header>
 
   <div class="nav__panel" id="mobilmenu" aria-hidden="true">
-    <a class="nav__panel-link" href="#osformak"><span>01</span>Ősformák</a>
-    <a class="nav__panel-link" href="#alkotasok"><span>02</span>Alkotások</a>
-    <a class="nav__panel-link" href="#szimbolum"><span>03</span>Szimbólum</a>
+    <a class="nav__panel-link" href="#rolam"><span>01</span>Rólam</a>
+    <a class="nav__panel-link" href="#galeria"><span>02</span>Galéria</a>
+    <a class="nav__panel-link" href="#vilag"><span>03</span>Világom</a>
     <a class="nav__panel-link" href="#szemlelet"><span>04</span>Szemlélet</a>
     <a class="nav__panel-link" href="#kapcsolat"><span>05</span>Kapcsolat</a>
     <p class="nav__panel-foot">Slisz Klaudia — vizuális világ</p>
@@ -68,6 +69,7 @@
     <!-- ============ HERO ============ -->
     <section class="hero" id="hero">
       <canvas class="hero__art" id="heroArt" aria-hidden="true"></canvas>
+      <img class="hero__photo" src="assets/img/klaudia-hero.jpg" alt="" width="736" height="736" decoding="async">
       <div class="hero__veil" aria-hidden="true"></div>
       <p class="hero__side">Fény · Hajtás · Szív · Aritmia</p>
       <div class="hero__inner">
@@ -78,10 +80,10 @@
           <span class="hero__rule" aria-hidden="true"></span>
           <span class="line line--3">vizuális&ensp;világa</span>
         </h1>
-        <p class="hero__sub">Nem fotókból, hanem vonalakból épül ez a világ: fény, hajtás, szív és spirál — mind az öt saját képem motívuma, újra rajzolva.</p>
+        <p class="hero__sub">Képeimből épül ez a világ: a fény lobbanása, a virág csöndje, a geometria rendje és a szív melege — egyetlen kompozícióban.</p>
         <div class="hero__meta">
           <p class="hero__tag">
-            <span>Generatív vonalrajz &amp; képzőművészeti kompozíció</span>
+            <span>Vizuális identitás &amp; képzőművészeti kompozíció</span>
             <b>Egyéni stúdió</b>
           </p>
           <a class="hero__scroll" href="#manifesto">
@@ -95,8 +97,8 @@
     <!-- ============ MARQUEE ============ -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee__track">
-        <span class="marquee__item">Fény <i>✦</i> Hajtás <i>✦</i> <b>Szív</b> <i>✦</i> Aritmia <i>✦</i> Élet virága <i>✦</i> <b>Aranymérés</b> <i>✦</i></span>
-        <span class="marquee__item">Fény <i>✦</i> Hajtás <i>✦</i> <b>Szív</b> <i>✦</i> Aritmia <i>✦</i> Élet virága <i>✦</i> <b>Aranymérés</b> <i>✦</i></span>
+        <span class="marquee__item">Fény <i>✦</i> Virág <i>✦</i> <b>Geometria</b> <i>✦</i> Élet virága <i>✦</i> Szív <i>✦</i> <b>Harmónia</b> <i>✦</i></span>
+        <span class="marquee__item">Fény <i>✦</i> Virág <i>✦</i> <b>Geometria</b> <i>✦</i> Élet virága <i>✦</i> Szív <i>✦</i> <b>Harmónia</b> <i>✦</i></span>
       </div>
     </div>
 
@@ -108,9 +110,43 @@
           <p class="l"><span>Minden kép egy belső állapot <em>fordítása</em> —</span></p>
           <p class="l"><span>amit szóval nehéz lenne <span class="dim">pontosan</span> kimondani.</span></p>
           <p class="l"><span>A fény adja a hangnemeket,</span></p>
-          <p class="l"><span>a hajtás és a geometria <em>a ritmust</em>.</span></p>
+          <p class="l"><span>a virág és a geometria <em>a ritmust</em>.</span></p>
         </div>
         <p class="manifesto__sign rv">Slisz Klaudia — képi jegyzet</p>
+      </div>
+    </section>
+
+    <!-- ============ RÓLAM ============ -->
+    <section class="section section--ink2" id="rolam">
+      <div class="container">
+        <div class="about">
+          <div class="about__media">
+            <figure class="about__frame rv">
+              <img src="assets/img/klaudia-portre.jpg" alt="Klaudia portréja — izzó szívvel a tenyerein" loading="lazy" decoding="async" width="736" height="807">
+            </figure>
+            <div class="about__badge rv rv-d-3">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 21s-7.5-4.6-9.5-9A5.6 5.6 0 0 1 12 6.4 5.6 5.6 0 0 1 21.5 12c-2 4.4-9.5 9-9.5 9Z" stroke="#c9a35c" stroke-width="1.4" stroke-linejoin="round"/>
+                <path d="M12 9.2v4.2m0 0 1.7-1.7M12 13.4l-1.7-1.7" stroke="#c9a35c" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+              <p><b>Képek, amik beszélnek</b> Önkifejező vizuális munkák</p>
+            </div>
+          </div>
+          <div class="about__body">
+            <p class="eyebrow rv">Rólam</p>
+            <h2 class="h2 rv rv-d-1">Képeimmel a <span class="accent">fényt</span> keresem — és azt, ami összeköt.</h2>
+            <p class="rv rv-d-2">A munkáim nem esztétikai kísérletek, hanem hangulatok: mindig egy-egy belső téma köré épülnek — fény, virág, szív, geometria. Ezek a motívumok visszatérnek, ahogy az életünkben is visszatérnek a legfontosabb dolgok.</p>
+            <p class="rv rv-d-3">Ez az oldal Klaudia vizuális világának bemutató látványterve: a saját képei köré épített, egységes képi identitás, amely később honlappá, kiállítás- vagy közösségi arculattá bővíthető.</p>
+            <ul class="about__values">
+              <li class="rv rv-d-2"><b>Hangnem</b> meleg, fényáztatott, emberi</li>
+              <li class="rv rv-d-3"><b>Nyelv</b> virág, szív, geometria, fénysugár</li>
+              <li class="rv rv-d-4"><b>Cél</b> képek, amelyek megnyugtatnak és emelnek</li>
+            </ul>
+            <div class="about__actions rv rv-d-5">
+              <a class="btn" href="#galeria">Galéria megtekintése <span class="arr" aria-hidden="true">→</span></a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -153,47 +189,40 @@
       </div>
     </section>
 
-    <!-- ============ ALKOTÁSOK (generatív galéria) ============ -->
-    <section class="section section--ink" id="alkotasok">
+    <!-- ============ GALÉRIA ============ -->
+    <section class="section section--ink" id="galeria">
       <div class="container--wide">
         <div class="section__head">
-          <p class="eyebrow eyebrow--dim rv">Öt kép — öt vonalrajz</p>
-          <h2 class="h2 rv rv-d-1">Az alkotásaim, <span class="accent">újra rajzolva</span></h2>
-          <p class="lead rv rv-d-2">Az eredeti képeim motívumait vettem le vonalakra: minden sor egy mű. Vidd az egeret (vagy érintsd meg) — a nagy vászon a hozzá tartozó rajzzal él fel.</p>
+          <p class="eyebrow eyebrow--dim rv">Öt kép — egy világ</p>
+          <h2 class="h2 rv rv-d-1">A saját képeim, <span class="accent">kompozícióban</span></h2>
+          <p class="lead rv rv-d-2">Mind az öt mű a világom egy-egy rétege: a fény lobbanása, a virág csöndje, a geometria rendje és a szív melege. Minden panehez más crop- és kompozíciós logika tartozik — ahogy egy nyomtatott albumnál is lenne.</p>
         </div>
-        <div class="works">
-          <div class="works__stage">
-            <canvas id="worksCanvas" aria-hidden="true"></canvas>
-            <span class="works__wm" id="worksWm" aria-hidden="true">01</span>
-            <p class="works__caption" id="worksCaption" aria-live="polite">Fényáztatott alak — virágok ölelésében</p>
-          </div>
-          <ol class="works__list" id="worksList">
-            <li class="works__item is-active" data-shape="halo" data-title="Fényáztatott alak — virágok ölelésében" data-note="01 · önarckép-fény">
-              <span class="works__no">01</span>
-              <span class="works__name">Fényáztatott alak</span>
-              <span class="works__tag">virágok ölelésében</span>
-            </li>
-            <li class="works__item" data-shape="sprout" data-title="Arany virág — a fény robogása" data-note="02 · aranytanulmány">
-              <span class="works__no">02</span>
-              <span class="works__name">Arany virág</span>
-              <span class="works__tag">a fény robogása</span>
-            </li>
-            <li class="works__item" data-shape="flower" data-title="Élet virága — a rend, ami összetart" data-note="03 · geometria">
-              <span class="works__no">03</span>
-              <span class="works__name">Élet virága</span>
-              <span class="works__tag">a rend, ami összetart</span>
-            </li>
-            <li class="works__item" data-shape="heart" data-title="Szív a virágban — a közép" data-note="04 · szívgeometria">
-              <span class="works__no">04</span>
-              <span class="works__name">Szív a virágban</span>
-              <span class="works__tag">a közép</span>
-            </li>
-            <li class="works__item" data-shape="spiral" data-title="A szív tartja — önarckép" data-note="05 · spirálportré">
-              <span class="works__no">05</span>
-              <span class="works__name">A szív tartja</span>
-              <span class="works__tag">önarckép</span>
-            </li>
-          </ol>
+        <div class="gallery__grid">
+          <figure class="g-item gi--a rv">
+            <span class="idx" aria-hidden="true">01</span>
+            <img src="assets/img/klaudia-hero.jpg" alt="Fénylő női alak virágokkal és izzó szívvel" loading="lazy" decoding="async" width="736" height="736">
+            <figcaption>Fényáztatott alak — virágok ölelésében</figcaption>
+          </figure>
+          <figure class="g-item gi--b rv rv-d-1">
+            <span class="idx" aria-hidden="true">02</span>
+            <img src="assets/img/arany-virag.jpg" alt="Arany csillogó virág napfényben" loading="lazy" decoding="async" width="736" height="1308">
+            <figcaption>Arany virág — a fény robogása</figcaption>
+          </figure>
+          <figure class="g-item gi--c rv rv-d-2">
+            <span class="idx" aria-hidden="true">03</span>
+            <img src="assets/img/elet-viraga.jpg" alt="Élet virága geometria irizáló háttéren" loading="lazy" decoding="async" width="680" height="1200">
+            <figcaption>Élet virága — a rend, ami összetart</figcaption>
+          </figure>
+          <figure class="g-item gi--d rv rv-d-3">
+            <span class="idx" aria-hidden="true">04</span>
+            <img src="assets/img/sziv-elet-viragaban.jpg" alt="Szív a geometria közepén, meleg mandala" loading="lazy" decoding="async" width="555" height="548">
+            <figcaption>Szív a virágban — a közép</figcaption>
+          </figure>
+          <figure class="g-item gi--e rv rv-d-4">
+            <span class="idx" aria-hidden="true">05</span>
+            <img src="assets/img/klaudia-portre.jpg" alt="Klaudia alakja izzó szívvel a tenger előtt" loading="lazy" decoding="async" width="736" height="807">
+            <figcaption>A szív tartja — önarckép</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -218,19 +247,8 @@
       <div class="container">
         <div class="symbol__grid">
           <div class="symbol__media rv">
-            <div class="symbol__disc" aria-hidden="true">
-              <svg viewBox="0 0 200 200" fill="none">
-                <g stroke="currentColor" stroke-width="0.6">
-                  <circle cx="100" cy="100" r="30"/>
-                  <circle cx="100" cy="70" r="30"/>
-                  <circle cx="126" cy="85" r="30"/>
-                  <circle cx="126" cy="115" r="30"/>
-                  <circle cx="100" cy="130" r="30"/>
-                  <circle cx="74" cy="115" r="30"/>
-                  <circle cx="74" cy="85" r="30"/>
-                  <circle cx="100" cy="100" r="97"/>
-                </g>
-              </svg>
+            <div class="symbol__photo">
+              <img src="assets/img/sziv-elet-viragaban.jpg" alt="Szív az Élet virága geometria közepén" loading="lazy" decoding="async" width="555" height="548">
             </div>
             <div class="symbol__orbit" aria-hidden="true"></div>
             <span class="symbol__core" aria-hidden="true">✦</span>
@@ -315,7 +333,7 @@
         <h2 class="cta__title rv rv-d-1">Ha megszólított a világom, <span class="accent">írj bátran</span></h2>
         <p class="cta__lead rv rv-d-2">Ez a látványterv első körben bemutatóanyag. A végleges elérhetőségek — e-mail, telefon, közösségi profilok — a tartalommal együtt, közös egyeztetés után kerülnek az oldalra.</p>
         <div class="cta__actions rv rv-d-3">
-          <a class="btn btn--solid" href="#kapcsolat">Írj nekem <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn--solid" href="#kapcsolat">E-mail — hamarosan <span class="arr" aria-hidden="true">→</span></a>
           <a class="btn btn--ghost" href="#kapcsolat">Közösségi profilok — hamarosan</a>
         </div>
       </div>
@@ -328,14 +346,14 @@
       <div class="footer__grid">
         <div>
           <p class="footer__brand">Slisz <em>Klaudia</em></p>
-          <p class="footer__tag">Vizuális világ — fény, hajtás, szív és spirál. Bemutató látványterv.</p>
+          <p class="footer__tag">Vizuális világ — fény, virág és geometria. Bemutató látványterv.</p>
         </div>
         <div class="footer__col">
           <h4>Oldal</h4>
           <ul>
-            <li><a href="#osformak">Ősformák</a></li>
-            <li><a href="#alkotasok">Alkotások</a></li>
-            <li><a href="#szimbolum">Szimbólum</a></li>
+            <li><a href="#rolam">Rólam</a></li>
+            <li><a href="#galeria">Galéria</a></li>
+            <li><a href="#vilag">Világom</a></li>
             <li><a href="#szemlelet">Szemlélet</a></li>
           </ul>
         </div>
@@ -351,7 +369,7 @@
       <div class="footer__bottom">
         <span>© 2026 Slisz Klaudia — Minden jog fenntartva.</span>
         <button class="motion-toggle" type="button" data-motion-toggle aria-pressed="true">Mozgás: be</button>
-        <span>Bemutató látványterv · v4.0</span>
+        <span>Bemutató látványterv · v5.0</span>
       </div>
     </div>
   </footer>
