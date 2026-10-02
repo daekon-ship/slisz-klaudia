@@ -1,7 +1,24 @@
 # SLISZ KLAUDIA — Projektállapot
 
 ## Current goal
-Prémium bemutató látványterv. **v6.0 — TELJES VIZUÁLIS ÚJRATERV: editorial művészeti portfólió (2026-10-02)**
+Személyes bemutatkozó oldal. **v7.0 — TARTALMI ALAPCSERE: mentor-profil (2026-10-02)**
+
+User megadta az ellenőrzött adatokat: Executive mentor / Mentor / Tag a SuperConscious
+World-ben, Budapest, klaudia.slisz@gmail.com, +36 20 365 2410 (nyilvános profil szerinti),
+scc.world/hu/members/118, jelvények: Intuyching, Pénz, Mentor.
+Megvalósítva (v6 vizuális rendszer megmaradt, tartalom cserélve):
+- „Vizuális alkotó" / „alkotásaim" / „önarckép" állítások ELTÁVOLÍTVA
+- Képek dekorációs szerepben (aria-hidden / üres alt, strip), nem uralják az oldalt
+- Hero: Executive mentor · SCC + Kapcsolatfelvétel (mailto) + SCC profil gomb
+- Bemutatkozás: csak ellenőrzött tények + jelvény-chipek + SCC link
+- Kapcsolat: E-mail küldése (mailto) / +36 20 365 2410 (tel) / SCC profil + szöveges sor
+- Title/meta/OG a mentor-profilra igazítva; OG-kép újragenerálva (v7)
+- QA EXECUTED PASS: overflow 0 @360/390/430/768/1440, konzol 0, minden link működő,
+  34px-es about-name overflow javítva (nbsp + break-word)
+
+---
+
+## Előzmény: v6.0 — TELJES VIZUÁLIS ÚJRATERV: editorial művészeti portfólió (2026-10-02)
 
 User utasítás: „A JELENLEGI OLDALT NE FOLTOZGASD. TERVEZD ÚJRA TELJESEN VIZUÁLISAN."
 — galéria-szintű portfólió, az alkotások a főszereplők, ivory/grafit/bronz, nagy tipó.

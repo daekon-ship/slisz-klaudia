@@ -1,65 +1,53 @@
-# SLISZ KLAUDIA — Vizuális alkotó
-## Művészeti portfólió · Átadási dokumentum · v6.0 (2026-10-02)
+# SLISZ KLAUDIA — Executive mentor
+## Személyes bemutatkozó oldal · Átadási dokumentum · v7.0 (2026-10-02)
 
 **Élő oldal:** https://daekon-ship.github.io/slisz-klaudia/
 **GitHub:** https://github.com/daekon-ship/slisz-klaudia
 
 ---
 
-## 0. v6.0 — teljes vizuális újraterv (galéria-editorial portfólió)
+## 0. v7.0 — tartalmi alapcseréje: mentor-profil
 
-Az oldal **az alkotások köré épül**: ivory háttér, grafit tipó, visszafogott bronz accent,
-nagy Fraunces címsorok, bőséges whitespace. Generatív vonalrajz-motor, Ősformák,
-marquee, technikai szövegek — mind kikerültek.
+Az oldal célja az **önfejlesztő szolgáltatások bemutatása és a jelentkezés segítése**.
+A korábbi „vizuális alkotó / portfólió" tartalmi irány elhagyva — az ellenőrzött adatok:
 
-- **Hero** — a „Fényáztatott alak" teljes viewport-magasságban balra, editorial tipó jobbra
-  (SLISZ / *Klaudia* / Vizuális alkotó + egy mondat). Kép-maszkos belépés, lassú parallax.
-- **Alkotások** — váltakozó ritmus: monumentális széles kép → számos statement
-  („Forma. Fény. Érzés.") → két kép egymás mellett elcsúsztatva → zárt monumentális önarckép.
-  Minden mű apró, elegáns felirattal; hoveren finom zoom.
-- **Rólam** — mandala-részlet + 4 soros bemutatkozás (kitalált tények nélkül).
-- **Kapcsolat** — sötét grafit lezárás: „Beszéljünk." — csak valós elérhetőség kerülhet ide.
-- **Footer** — két sor: Slisz Klaudia · © 2026
-- **Mozgás** — reveal + parallax; `prefers-reduced-motion` esetén minden mozdulatlan.
+- **Név:** Slisz Klaudia
+- **Szerep:** Executive mentor, Mentor, Tag — SuperConscious World
+- **Hely:** Budapest
+- **E-mail:** klaudia.slisz@gmail.com (működő mailto-link)
+- **Telefon:** +36 20 365 2410 (a nyilvános SCC-profil szerint; tel:-link)
+- **Profil:** https://scc.world/hu/members/118
+- **Jelvények:** Intuyching · Pénz · Mentor
 
-## 1. Fájlok
+A korábban kapott képek **dekorációként** jelennek meg (hero oldalkép, bemutatkozás-mellkép,
+képcsík), nem „alkotásként" vannak feltüntetve. Szolgáltatáslista, ár, vélemény,
+végzettség vagy eredményígéret **szándékosan nincs az oldalon** — amíg Klaudia meg nem
+adja őket, semmi nem kerül fel.
 
-| Fájl | Mi ez? |
-|---|---|
-| `index.html` + `css/` + `js/` + `assets/img/` | Az élő oldal forrása. |
-| `assets/img/` | Az 5 eredeti kép (optimalizált) + favicon + og-image.png |
-| `latvanyterv-egyfajlban.html` | Egyfájlos offline átadó (`make_qa_embedded.ps1` építi) |
-| `.daekon/` | Belső munkadokumentáció (nem kell átadni) |
+## 1. Szerkezet
+
+- **Hero** — név + executive mentor pozicionálás + Kapcsolatfelvétel (mailto) + SCC profil gomb; jobb oldalt dekoratív mandala-kép
+- **Bemutatkozás** — rövid, csak ellenőrzött tények + jelvények + SCC profil link; dekoratív kép mellett
+- **Képcsík** — 3 dekoratív kép (aria-hidden)
+- **Kapcsolat** — Beszéljünk. + E-mail küldése / telefonszám / SCC profil gombok + szöveges elérhetőségek
+- **Footer** — Slisz Klaudia · © 2026
 
 ## 2. Szerkesztési pontok
 
-- **Szövegek:** `index.html`, szekció-kommentekkel jelölve
-- **Színek:** `css/style.css` `:root` blokk (`--ivory`, `--graphite`, `--bronze`)
-- **Képcsere:** `assets/img/` azonos néven — a kompozíció változatlan marad
-- **Egyfájlos újraépítés:** `powershell -File make_qa_embedded.ps1`, majd
+- **Szövegek / elérhetőségek:** `index.html`
+- **Színek:** `css/style.css` `:root` (`--ivory`, `--graphite`, `--bronze`)
+- **Egyfájlos offline változat:** `powershell -File make_qa_embedded.ps1`, majd
   `copy _qa_embedded.html latvanyterv-egyfajlban.html`
+- **OG-kép:** `powershell -File make_og_image.ps1`
 
 ## 3. Közzététel
 
 GitHub Pages él: minden push után ~1 percen belül frissül.
-FTP-terv: `deploy/FTP-UTMUTATO.md` (hitelesítő nélkül inaktív).
 
-## 4. Technikai állapot (v6 QA)
+## 4. Technikai állapot (v7 QA)
 
 - Overflow 0 @ 360 / 390 / 430 / 768 / 1440
-- Konzol: 0 hiba; 7/7 kép betölt
+- Konzol: 0 hiba; minden kép betölt
+- Minden elérhetőség működő link (mailto / tel / https)
 - `prefers-reduced-motion`: minden animáció kikapcsol
-- SEO/OG: frissítve (új og-image, editorial felirattal)
-
-## 5. Üzenet Klaudiának (másolható)
-
-> Kedves Klaudia!
->
-> Az oldalad most az alkotásaid köré épül: nagy, tiszta felületek, ivory háttér,
-> a képeid színei dominálnak. Nyitóképernyő: a Fényáztatott alak teljes magasságban,
-> mellette a neved. Görgetve a többi mű váltakozó nagy kompozíciókban jelenik meg.
->
-> **Megtekintés:** https://daekon-ship.github.io/slisz-klaudia/
->
-> Amint megvannak a valódi elérhetőségeid (e-mail / Instagram / Facebook),
-> egyetlen üzenetből bekerülnek a Kapcsolat részbe.
+- Title / meta description / OG szövegek a mentor-profilra igazítva

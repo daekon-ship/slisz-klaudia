@@ -128,40 +128,23 @@ body.menu-open .menu a:nth-child(3){ transition-delay:.24s; }
 /* ---------- 4. HERO ---------- */
 .hero{
   position:relative; min-height:100svh;
-  display:grid; grid-template-columns:minmax(0,46fr) minmax(0,54fr);
+  display:grid; grid-template-columns:minmax(0,55fr) minmax(0,45fr);
   align-items:stretch;
-}
-.hero__media{
-  position:relative; overflow:hidden;
-  min-height:60svh;
-}
-.hero__frame{
-  position:absolute; inset:-6% 0;
-  will-change:transform;
-}
-.hero__frame img{
-  width:100%; height:100%; object-fit:cover; object-position:center 20%;
-}
-/* finom melegítés, hogy a fotó beleüljön az ivory világba */
-.hero__media::after{
-  content:""; position:absolute; inset:0; pointer-events:none;
-  background:linear-gradient(90deg, rgba(245,241,233,.28) 0%, transparent 26%),
-             linear-gradient(0deg, rgba(245,241,233,.22) 0%, transparent 22%);
 }
 .hero__panel{
   position:relative;
   display:flex; flex-direction:column; justify-content:center;
   padding:calc(var(--nav-h) + 2rem) clamp(1.6rem,5vw,5rem) 3rem;
 }
-.hero__content{ max-width:34rem; }
+.hero__content{ max-width:38rem; }
 .hero__role{
-  font-size:.74rem; font-weight:600; letter-spacing:.34em; text-transform:uppercase;
+  font-size:.74rem; font-weight:600; letter-spacing:.3em; text-transform:uppercase;
   color:var(--bronze);
 }
 .hero__title{
   margin-top:1.4rem;
   font-family:var(--font-serif); font-weight:340;
-  font-size:clamp(3.4rem, 9.2vw, 8.6rem);
+  font-size:clamp(3.4rem, 8.6vw, 8.2rem);
   line-height:.98; letter-spacing:-.015em;
   color:var(--graphite);
 }
@@ -172,21 +155,45 @@ body.menu-open .menu a:nth-child(3){ transition-delay:.24s; }
   margin-top:1.8rem;
   font-size:clamp(1rem, 1.4vw, 1.15rem);
   color:var(--graphite-2);
-  max-width:26rem;
+  max-width:30rem;
 }
-.hero__cue{
-  margin-top:clamp(2.2rem, 5vh, 3.6rem);
-  display:inline-flex; align-items:center; gap:1rem;
-  font-size:.72rem; font-weight:600; letter-spacing:.26em; text-transform:uppercase;
-  color:var(--graphite-2);
-  transition:color .3s ease;
+.hero__actions{
+  margin-top:2.4rem;
+  display:flex; gap:.9rem; flex-wrap:wrap;
 }
-.hero__cue:hover{ color:var(--bronze); }
-.hero__cue-line{
-  width:3.2rem; height:1px; background:var(--graphite);
-  transition:width .45s var(--ease), background .3s ease;
+.hero__media{
+  position:relative; overflow:hidden;
+  min-height:60svh;
 }
-.hero__cue:hover .hero__cue-line{ width:4.4rem; background:var(--bronze); }
+.hero__frame{
+  position:absolute; inset:-6% 0;
+  will-change:transform;
+}
+.hero__frame img{
+  width:100%; height:100%; object-fit:cover;
+}
+/* az ivory világba olvasztó átmenetek */
+.hero__media::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(270deg, rgba(245,241,233,.30) 0%, transparent 24%),
+             linear-gradient(0deg, rgba(245,241,233,.24) 0%, transparent 22%);
+}
+/* gombok */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:.76rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase;
+  padding:1.05rem 1.9rem; border-radius:99px;
+  transition:background .35s ease, color .35s ease, border-color .35s ease, transform .35s var(--ease);
+}
+.btn:active{ transform:scale(.97); }
+.btn--solid{
+  background:var(--graphite); color:var(--ivory);
+}
+.btn--solid:hover{ background:var(--bronze); }
+.btn--ghost{
+  color:var(--graphite); box-shadow:inset 0 0 0 1px var(--line);
+}
+.btn--ghost:hover{ color:var(--bronze); box-shadow:inset 0 0 0 1px var(--bronze); }
 
 /* hero belépő: sor-felhúzás + kép-maszk */
 .js .hero__line > span{
@@ -220,110 +227,79 @@ body.menu-open .menu a:nth-child(3){ transition-delay:.24s; }
 .js .rv-d-4{ transition-delay:.42s; }
 
 /* képek maszkos belépése */
-.js .work__frame{
+.js .frame{
   clip-path:inset(6% 4% 6% 4%);
   transition:clip-path 1.25s var(--ease);
 }
-.js .is-in .work__frame,
-.js .work__frame.is-in{ clip-path:inset(0 0 0 0); }
+.js .is-in .frame,
+.js .frame.is-in{ clip-path:inset(0 0 0 0); }
 
-/* ---------- 6. ALKOTÁSOK ---------- */
-.works{
-  padding:clamp(5.5rem, 12vw, 10rem) 0 clamp(4rem, 8vw, 7rem);
+/* SCC jelvények */
+.chips{
+  display:flex; gap:.6rem; flex-wrap:wrap;
+  margin-top:1.6rem;
 }
-
-/* tipográfiai statement-blokkok */
-.statement{
-  width:var(--w); margin-inline:auto;
-  padding:clamp(4.5rem, 11vw, 9rem) 0 clamp(3.5rem, 8vw, 7rem);
-}
-.statement--tight{
-  padding:clamp(3.5rem, 8vw, 6.5rem) 0;
-}
-.statement__text{
-  font-family:var(--font-serif); font-weight:340;
-  font-size:clamp(2.3rem, 5.6vw, 5.2rem);
-  line-height:1.14; letter-spacing:-.01em;
-  max-width:22em;
-}
-.statement__text em{
-  font-style:italic; font-weight:300; color:var(--bronze);
-}
-.statement .eyebrow{ margin-bottom:1.6rem; }
-
-/* munka-blokk */
-.work{
-  width:var(--w); margin-inline:auto;
-}
-.work__frame{
-  position:relative; overflow:hidden; background:var(--ivory-2);
-}
-.work__frame img{
-  width:100%; height:100%; object-fit:cover;
-  transition:transform 1.4s var(--ease);
-}
-.work:hover .work__frame img{ transform:scale(1.025); }
-.work__caption{
-  display:flex; align-items:baseline; gap:1rem; flex-wrap:wrap;
-  padding-top:1.1rem;
-}
-.work__title{
-  font-family:var(--font-serif); font-weight:450;
-  font-size:1.05rem; letter-spacing:.01em;
-}
-.work__sub{
-  font-size:.72rem; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
+.chips li{
+  font-size:.7rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase;
   color:var(--graphite-2);
+  border:1px solid var(--line); border-radius:99px;
+  padding:.45rem 1rem;
 }
+.about__link{ margin-top:1.6rem; }
+.about__link a{
+  font-size:.92rem; font-weight:600; color:var(--bronze);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s ease;
+}
+.about__link a:hover{ border-color:var(--bronze); }
 
-/* monumentális: teljes szélesség, nagy */
-.work--monument .work__frame{ aspect-ratio:16/9.5; }
-.work--monument .work__frame img{ object-position:center 24%; }
-.work--monument .work__caption{ justify-content:center; text-align:center; }
-.work--monument .work__title{ font-size:1.25rem; }
-
-/* széles, de nem teli-képernyős: arányos álló kép középen */
-.work--wide{ max-width:880px; }
-.work--wide .work__frame{ aspect-ratio:4/4.4; }
-.work--wide .work__caption{ justify-content:center; }
-
-/* központi, kisebb mű */
-.work--center{ max-width:760px; }
-.work--center .work__frame{ aspect-ratio:1/1; }
-.work--center .work__caption{ justify-content:center; }
-
-/* pár: két kép egymás mellett, jobboldali lecsúsztatva */
-.work-pair{
+/* ---------- 6. DÍSZÍTŐ KÉPCSÍK (dekoráció) ---------- */
+.strip{
   width:var(--w); margin-inline:auto;
-  display:grid; grid-template-columns:1fr 1fr;
-  gap:clamp(1.4rem, 3.4vw, 3.2rem);
-  align-items:start;
-  padding-block:clamp(1rem, 3vw, 2rem);
+  padding:clamp(2.5rem, 6vw, 5rem) 0;
 }
-.work--tall .work__frame{ aspect-ratio:4/4.9; }
-.work--offset{ margin-top:clamp(3rem, 8vw, 7rem); }
-.work-pair .work__caption{ flex-direction:column; gap:.15rem; }
+.strip__inner{
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:clamp(1rem, 2.4vw, 2rem);
+  align-items:start;
+}
+.strip .frame{
+  overflow:hidden; background:var(--ivory-2);
+}
+.strip .frame:nth-child(1){ aspect-ratio:4/5.2; }
+.strip .frame:nth-child(2){ aspect-ratio:4/5.6; margin-top:clamp(1.5rem, 4vw, 3.5rem); }
+.strip .frame:nth-child(3){ aspect-ratio:4/4.8; }
+.strip .frame img{
+  width:100%; height:100%; object-fit:cover;
+  opacity:.92;
+}
+.strip-note{
+  width:var(--w); margin-inline:auto;
+  font-size:.72rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--graphite-2);
+  padding-top:1.2rem;
+}
 
-/* ---------- 7. RÓLAM ---------- */
+/* ---------- 7. BEMUTATKOZÁS ---------- */
 .about{
   width:var(--w); margin-inline:auto;
-  padding:clamp(5rem, 11vw, 9.5rem) 0;
+  padding:clamp(5rem, 11vw, 9.5rem) 0 clamp(3rem, 6vw, 5rem);
   display:grid; grid-template-columns:minmax(0,5fr) minmax(0,6fr);
   gap:clamp(2.4rem, 6vw, 6rem);
   align-items:center;
 }
-.about__media .work__frame{ aspect-ratio:4/4.7; }
-.about__media .work__frame img{ object-position:center 22%; }
-/* részlet-zoom: a mandala középje tölti ki a keretet */
-.about__detail img{
-  width:100%; height:100%; object-fit:cover;
-  transform:scale(1.65); transform-origin:52% 55%;
+.about .frame{ overflow:hidden; background:var(--ivory-2); }
+.about .frame{ aspect-ratio:4/4.7; }
+.about .frame img{
+  width:100%; height:100%; object-fit:cover; object-position:center 24%;
+  opacity:.94;
 }
 .about__name{
   margin-top:1.2rem;
   font-family:var(--font-serif); font-weight:340;
-  font-size:clamp(2.4rem, 4.6vw, 4.2rem);
-  line-height:1.05; letter-spacing:-.01em;
+  font-size:clamp(2.1rem, 4.6vw, 4.2rem);
+  line-height:1.08; letter-spacing:-.01em;
+  overflow-wrap:break-word;
 }
 .about__text{
   margin-top:1.4rem;
@@ -337,8 +313,16 @@ body.menu-open .menu a:nth-child(3){ transition-delay:.24s; }
   background:var(--graphite);
   color:var(--ivory);
   text-align:center;
-  padding:clamp(6.5rem, 15vw, 12rem) clamp(1.6rem, 6vw, 4rem);
+  padding:clamp(6rem, 14vw, 11rem) clamp(1.6rem, 6vw, 4rem);
 }
+.contact .btn--solid{
+  background:var(--ivory); color:var(--graphite);
+}
+.contact .btn--solid:hover{ background:var(--bronze); color:var(--ivory); }
+.contact .btn--ghost{
+  color:var(--ivory); box-shadow:inset 0 0 0 1px rgba(245,241,233,.3);
+}
+.contact .btn--ghost:hover{ color:var(--ivory); box-shadow:inset 0 0 0 1px var(--bronze); }
 .contact__title{
   margin-top:1.6rem;
   font-family:var(--font-serif); font-weight:340;
@@ -350,6 +334,21 @@ body.menu-open .menu a:nth-child(3){ transition-delay:.24s; }
   font-size:clamp(1rem, 1.5vw, 1.2rem);
   color:rgba(245,241,233,.72);
 }
+.contact__actions{
+  margin-top:2.6rem;
+  display:flex; gap:.9rem; justify-content:center; flex-wrap:wrap;
+}
+.contact__lines{
+  margin-top:2.2rem;
+  display:flex; gap:.9rem; justify-content:center; flex-wrap:wrap;
+  font-size:.92rem; letter-spacing:.04em;
+  color:rgba(245,241,233,.66);
+}
+.contact__lines a{
+  border-bottom:1px solid rgba(245,241,233,.25);
+  transition:color .3s ease, border-color .3s ease;
+}
+.contact__lines a:hover{ color:var(--ivory); border-color:var(--bronze); }
 
 /* ---------- 9. FOOTER ---------- */
 .footer{
@@ -371,12 +370,12 @@ body.menu-open .menu a:nth-child(3){ transition-delay:.24s; }
 
 /* ---------- 10. RESZPONZÍV ---------- */
 @media (max-width:960px){
-  .hero{ grid-template-columns:1fr; grid-template-rows:56svh auto; }
-  .hero__media{ min-height:56svh; order:-1; }
+  .hero{ grid-template-columns:1fr; grid-template-rows:auto 52svh; }
+  .hero__panel{ padding-top:calc(var(--nav-h) + 2.4rem); padding-bottom:2.4rem; }
+  .hero__media{ min-height:52svh; }
   .hero__media::after{
-    background:linear-gradient(0deg, rgba(245,241,233,.85) 0%, rgba(245,241,233,0) 34%);
+    background:linear-gradient(180deg, rgba(245,241,233,.5) 0%, rgba(245,241,233,0) 30%);
   }
-  .hero__panel{ padding-top:1.8rem; padding-bottom:3rem; }
   .about{ grid-template-columns:1fr; gap:2.6rem; }
   .about__media{ max-width:520px; }
 }
@@ -386,21 +385,24 @@ body.menu-open .menu a:nth-child(3){ transition-delay:.24s; }
   .nav__burger{ display:flex; }
   .hero__title{ font-size:clamp(3rem, 15.5vw, 4.6rem); }
   .hero__sub{ font-size:1rem; }
-  .work-pair{ grid-template-columns:1fr; gap:2.6rem; }
-  .work--offset{ margin-top:0; }
-  .work-pair .work__caption{ flex-direction:row; gap:1rem; }
-  .work--monument .work__frame{ aspect-ratio:4/4.4; }
-  .work--monument .work__frame img{ object-position:center 22%; }
-  .work--wide .work__frame{ aspect-ratio:4/4.3; }
-  .work__caption{ flex-direction:column; gap:.15rem; }
-  .statement{ padding-inline:0; }
+  .hero__actions .btn{ flex:1 1 auto; }
+  .strip__inner{ grid-template-columns:1fr 1fr; }
+  .strip .frame:nth-child(3){ display:none; }
   .contact{ text-align:left; }
-  .footer{ flex-direction:column; align-items:flex-start; gap:.4rem; }
+  .contact__actions{ justify-content:flex-start; }
+  .contact__actions .btn{ width:100%; }
+  .contact__lines{ justify-content:flex-start; }
+  .footer__inner{ flex-direction:column; align-items:flex-start; gap:.4rem; }
 }
 @media (max-width:430px){
-  .hero{ grid-template-rows:52svh auto; }
-  .work--monument .work__frame{ aspect-ratio:4/4.8; }
-  .plate-spacing{ display:none; }
+  .hero{ grid-template-rows:auto 46svh; }
+  .strip__inner{ grid-template-columns:1fr; }
+  .strip .frame:nth-child(2){ display:none; }
+  .strip .frame:nth-child(3){ display:block; }
+  .strip .frame{ aspect-ratio:4/3.4 !important; margin-top:0 !important; }
+}
+@media (max-width:430px){
+  .hero{ grid-template-rows:auto 46svh; }
 }
 
 /* ---------- 11. MOZGÁS-TISZTELET ---------- */
@@ -409,11 +411,11 @@ body.menu-open .menu a:nth-child(3){ transition-delay:.24s; }
   .js .rv,
   .js .hero__line > span,
   .js .hero__media,
-  .js .work__frame{
+  .js .frame{
     transition:none !important;
     opacity:1 !important; transform:none !important;
     clip-path:none !important;
   }
   .hero__frame{ transform:none !important; }
-  .work:hover .work__frame img{ transform:none; }
+  .strip .frame img{ opacity:.92; }
 }
