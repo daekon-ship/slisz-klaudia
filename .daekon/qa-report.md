@@ -1,6 +1,23 @@
 # DAEKON minőségi kapu — SLISZ KLAUDIA
-Dátum: 2026-10-01 · **v4.0 művészeti motor-újraépítés** ("SOKKAL JOBBAT" kérésre)
+Dátum: 2026-10-02 · **v5.0 — eredeti képek visszatérnek** (konkrét feladatlista alapján)
 Kontextus: ügyfélnek bemutatandó prémium látványterv (statikus one-page)
+
+## v5.0 kapu (2026-10-02) — EXECUTED PASS
+- Overflow-x: 0 @ 360/390/430/768/1440 (a 430-as 3px about-glow túllógás javítva:
+  .section--ink2 overflow:clip)
+- Konzol: 0 hiba / 0 figyelmeztetés (több teljes betöltés, mobil + asztal)
+- Képek: 8/8 img betölt (viewport-alattiak lazy-load), élőben mind az 5 jpg HTTP 200
+- Anchor-ok: html scroll-padding-top 76px egyedileg (a duplázó [id] scroll-margin
+  eltávolítva); #galeria cél 76px-en áll meg, cím nem takart
+- Mobilmenü: nyit/zár, aria-expanded, link-kattintás után zár + görget
+- Scrollspy az új szekciókkal (#rolam/#galeria/#vilag/#szemlelet) él
+- Érintő: .g-item figcaption + idx mindig látszik (hover:none media)
+- Egyfájlos build 81 KB: görgetés után 0 törött kép, overflow 0
+- Éles: eba0365 → index 200 + 5×jpg 200, új jelölők a szolgált HTML/CSS-ben visszakeresve
+
+---
+
+## Előzmény: v4.0 kapu (2026-10-01) — EXECUTED PASS
 
 ## v4.0 kapu (2026-10-01) — EXECUTED PASS
 - Konzol: 0 hiba / 0 figyelmeztetés (desktop + mobil reload után, preview_logs)
